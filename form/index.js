@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const mongodb = require('mongodb');
 
 const app = express()
 app.use(bodyParser.json());
@@ -130,10 +131,24 @@ app.post('/', function (req, res) {
     decibels
   }
 
+  // Now save "result" in MONGODB
   console.log(result)
   res.json(result)
+
+  mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, db) {
+    if (err) throw err;
+    // Note that the insert method can take either an array or a dict.
+    
+    // Select "table" (collection)
+    const metrics = db.collection('metrics');
+
+    metrics.insert([result], function(err, result) {
+    })
+
+  })
 })
 
 app.listen(app.get('port'), function () {
+  console.log('Connected to database: ', process.env.MONGODB_URI)
   console.log('Listening to port', app.get('port'))
 })
