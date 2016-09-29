@@ -3,15 +3,25 @@ $(document).ready(function() {
   var devices = L.markerClusterGroup();
   var countries = [];
   var cities = ['Madrid', 'London', 'Santiago'];
-  var machineSensor = nv.models.lineChart(),
-      humanSensor = nv.models.lineChart();
-  var machineData,humanData;
+  var machineSensor = nv.models.multiChart(),
+      humanSensor = nv.models.multiChart();
+  var machineData
+  var humanData;
+
   var tickFormats = {
     "year":"%Y",
     "month": "%b",
     "week": "%x",
     "day": "%x",
     "hour": "%X",
+  }
+
+  var chartOptions = {
+    duration: 300,
+    //useInteractiveGuideline: true,
+    focusEnable:false,
+    margin:{right:50},
+    showLegend:false
   }
 
   function timeTickFormat(d){
@@ -26,42 +36,89 @@ $(document).ready(function() {
     return d3.format(',.2f')(d);
   }
 
+  function getLimits(start,end,serie){
+    if(serie=="EU"){
+      label = "EU Directive";
+      points = [{x:new Date(start),y:55},{x:new Date(end),y:55}];
+      color = "blue";
+    }
+    else if(serie=="OMS"){
+      label = "OMS Recomendation";
+      points = [{x:new Date(start),y:50},{x:new Date(end),y:50}];
+      color = "orange";
+    }
+    return {key:label,type:"line",yAxis:2,values:points,color:color};
+  }
+
   function loadNoice(device){
-    //TODO Limit by date
-    console.log(device);
-    $.getJSON('https://api.smartcitizen.me/v0/devices/'+device+'/readings?all_intervals=true&from=2016-09-20T14:14:44.889Z&rollup=12h&sensor_id=7&to=2016-09-27T14:14:44.890Z', function(resp) {
-      console.log(resp.readings);
+    start = moment().subtract(7, 'days').format();
+    end = moment().format()
+    $.getJSON('https://api.smartcitizen.me/v0/devices/'+device+'/readings?all_intervals=true&from='+start+'&rollup=12h&sensor_id=7&to='+end, function(resp) {
       var points = resp.readings.map(function(d){
         ts = new Date(d[0]);
         value = (d[1]!=null)?d[1]:0;
         return {x:ts.getTime(),y:value};
       })
+
+      data = new Array();
       var serie = {
         key:"Noise",
-        values:points
+        values:points,
+        type:'bar',
+        yAxis:1
       }
-      console.log(points);
+
+      data.push(serie);
+      data.push(getLimits(start,end,"EU"));
+      data.push(getLimits(start,end,"OMS"));
+
       machineData
-              .datum([serie])
+              .datum(data)
               .transition().duration(1200)
               .call(machineSensor);
 
 
      nv.utils.windowResize(machineSensor.update);
    });
+   // Load Human data
+   data = new Array();
+   var serie = {
+     key:"Noise",
+     values:[],
+     type:'bar',
+     yAxis:1
+   }
+
+   data.push(serie);
+   data.push(getLimits(start,end,"EU"));
+   data.push(getLimits(start,end,"OMS"));
+
+console.log(humanData);
+
+   humanData
+           .datum(data)
+           .transition().duration(1200)
+           .call(humanSensor);
+
+
   }
+
   nv.addGraph(function(){
-    machineSensor.options({duration: 300,useInteractiveGuideline: true});
-    machineSensor.xAxis.scale(d3.time.scale());
+    machineSensor.options(chartOptions);
+    machineSensor.yDomain1([0,150]);
+    machineSensor.yDomain2([0,150]);
 
     machineSensor.xAxis
         .axisLabel("Time (s)")
         .tickFormat(timeTickFormat)
-        .staggerLabels(true);
+        .staggerLabels(true)
+        .showMaxMin(false);
 
-    machineSensor.yAxis
+    machineSensor.yAxis1
         .axisLabel('Noise (db)')
         .tickFormat(noiseTickFormat);
+    machineSensor.yAxis2
+            .tickFormat(noiseTickFormat);
 
     machineData = d3.select('#machine-sensor > svg');
     machineData
@@ -73,16 +130,19 @@ $(document).ready(function() {
   });
 
   nv.addGraph(function(){
-    humanSensor.options({duration: 300,useInteractiveGuideline: true});
-    humanSensor.xAxis.scale(d3.time.scale());
+    humanSensor.options(chartOptions);
+    humanSensor.yDomain1([0,150]);
+    humanSensor.yDomain2([0,150]);
 
     humanSensor.xAxis
         .axisLabel("Time (s)")
         .tickFormat(timeTickFormat)
         .staggerLabels(true);
 
-    humanSensor.yAxis
+    humanSensor.yAxis1
         .axisLabel('Noise (db)')
+        .tickFormat(noiseTickFormat);
+    humanSensor.yAxis2
         .tickFormat(noiseTickFormat);
 
     humanData = d3.select('#human-sensor svg');
@@ -141,4 +201,5 @@ $(document).ready(function() {
     });
   })
 
+  //loadNoice(3675);
 });

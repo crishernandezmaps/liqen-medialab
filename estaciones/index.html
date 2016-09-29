@@ -14,6 +14,7 @@
   <script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 
   <script src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script src="js/liquen.js"></script>
@@ -21,6 +22,13 @@
 </head>
 <div id="map"></div>
 <div id="graphs">
+  <div>
+    <ul class="vis-filter">
+      <li class="noise">Noise</li>
+      <li class="eu">EU directive</li>
+      <li class="oms">OMS</li>
+    </ul>
+  </div>
   <div id="machine-sensor" class='sensor'>
     <svg></svg>
   </div>
