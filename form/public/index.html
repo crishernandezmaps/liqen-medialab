@@ -2,32 +2,40 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Liqen // form</title>
 
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 bg-inverse">
-          <h1>
-            <img src="imgs/logo.png" height="206" width="373" alt="" style="max-height: 100px; width: auto;">
-          </h1>
+    <div class="splash-screen bg-inverse text-xs-center">
+      <h1>
+        <img src="imgs/logo.png" height="206" width="373" alt="" style="max-height: 100px; width: auto;">
+      </h1>
 
-          <h2>Instrucciones</h2>
-          <ol>
-            <li>Sitúese en el espacio físico y realice una inspección visual del entorno.</li>
-            <li>Identifique las actividades a su alrededor.</li>
-            <li>Comience el cuestionario.</li>
-          </ol>
-        </div>
+      <div class="container text-xs-left">
+        <h2>Instrucciones</h2>
+        <ol>
+          <li>Sitúese en el espacio físico y realice una inspección visual del entorno.</li>
+          <li>Identifique las actividades a su alrededor.</li>
+        </ol>
+
+        <button type="button" class="btn btn-primary">Comenzar cuestionario</button>
       </div>
+    </div>
+
+    <div class="container">
 
       <form action="/" method="post">
-        <button type="button" class="btn btn-primary" id="get-location">
-          Get location
-        </button>
+        <fieldset class="form-group">
+          <legend>Ubicación actual</legend>
+          <p>Para saber qué espacio está valorando, necesitamos su permiso para acceder a la ubicación de su teléfono móvil.</p>
+        
+          <button type="button" class="btn btn-primary" id="get-location">
+            Otorgar ubicación
+          </button>
+        </fieldset>
 
         <input type="hidden" value="" id="latitude" name="latitude">
         <input type="hidden" value="" id="longitude" name="longitude">
