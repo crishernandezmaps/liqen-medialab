@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Liqen // form</title>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 bg-inverse">
+          <h1>
+            <img src="imgs/logo.png" height="206" width="373" alt="" style="max-height: 100px; width: auto;">
+          </h1>
+
+          <h2>Instrucciones</h2>
+          <ol>
+            <li>Sitúese en el espacio físico y realice una inspección visual del entorno.</li>
+            <li>Identifique las actividades a su alrededor.</li>
+            <li>Comience el cuestionario.</li>
+          </ol>
+        </div>
+      </div>
+
+      <form action="/" method="post">
+        <button type="button" class="btn btn-primary" id="get-location">
+          Get location
+        </button>
+
+        <input type="hidden" value="" id="latitude" name="latitude">
+        <input type="hidden" value="" id="longitude" name="longitude">
+
+        <!-- q 1 -->
+
+        <fieldset class="form-group">
+          <legend>Lugar de procedencia</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="procedence" id="procedence-home" value="home">
+              Domicilio o vivienda
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="procedence" id="procedence-transit" value="transit">
+              En tránsito
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="procedence" id="procedence-other" value="other">
+              Otro
+            </label>
+          </div>
+        </fieldset>
+
+
+        <!-- q 2 -->
+
+        <fieldset class="form-group">
+          <legend>Considera que el ruido es...</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noise-disturbance" id="noise-disturbance-0" value="0">
+              No molesto
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noise-disturbance" id="noise-disturbance-1" value="1">
+              Molesto
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noise-disturbance" id="noise-disturbance-2" value="2">
+              Muy molesto
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- q 3 -->
+
+        <fieldset class="form-group">
+          <legend>¿Cuál es el origen del ruido?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="source" id="source-motor" value="motor">
+              Vehículos por motor
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="source" id="source-roadworks" value="roadworks">
+              Trabajos en la vía pública
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="source" id="source-leisure" value="leisure">
+              Actividades deportivo-recreativas y de ocio
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="source" id="source-unknown" value="unknown">
+              Desconocido
+            </label>
+          </div>
+        </fieldset>
+
+
+        <!-- q 4 -->
+
+        <fieldset class="form-group">
+          <legend>¿Cree que se trata de un área...?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-0" value="0">
+              Silenciosa
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-1" value="1">
+              Levemente ruidosa
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-2" value="2">
+              Tolerablemente ruidosa
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-3" value="3">
+              Ruidosa
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-4" value="4">
+              Especialmente ruidosa
+            </label>
+          </div>
+        </fieldset>
+
+
+        <!-- q 5 -->
+
+        <fieldset class="form-group">
+          <legend>¿Cree que conciliar el sueño o descansar aquí sería...?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="sleep-quality" id="sleep-quality-2" value="2">
+              Fácil
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="sleep-quality" id="sleep-quality-1" value="1">
+              Difícil
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="sleep-quality" id="sleep-quality-0" value="0">
+              Imposible
+            </label>
+          </div>
+        </fieldset>
+
+
+        <!-- q 6 -->
+
+        <fieldset class="form-group">
+          <legend>¿Podría trabajar en un ambiente así?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="for-working-here" id="for-working-here-yes" value="yes">
+              Sí
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="for-working-here" id="for-working-here-no" value="no">
+              No
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- q 7 -->
+
+        <fieldset class="form-group">
+          <legend>¿Considera que en <strong>su lugar de residencia</strong>, el ruido es...?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="at-home" id="at-home-better" value="better">
+              Menor que aquí
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="at-home" id="at-home-same" value="same">
+              Igual que aquí
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="at-home" id="at-home-worse" value="worse">
+              Mayor que aquí
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- q 8 -->
+
+        <fieldset class="form-group">
+          <legend>¿Cree que el ruido es...?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="continuous" id="continuous-yes" value="yes">
+              Continuo
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="continuous" id="continuous-no" value="no">
+              Intermitente
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- q 9 -->
+
+        <fieldset class="form-group">
+          <legend>¿Elegiría este lugar para vivir?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="for-living-here" id="live-here-yes" value="yes">
+              Sí
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="for-living-here" id="live-here-no" value="no">
+              No
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- q 10 -->
+
+        <fieldset class="form-group">
+          <legend>¿Cree que en otro momento del día el ruido es...?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="other-time" id="other-time-better" value="better">
+              Menor que ahora
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="other-time" id="other-time-same" value="same">
+              Igual que ahora
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="other-time" id="other-time-worse" value="worse">
+              Mayor que ahora
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- q 11 -->
+
+        <fieldset class="form-group">
+          <legend>Comparado con el momento en el que inició el test, el ruido ahora es...?</legend>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="thirty-mins" id="thirty-mins-better" value="better">
+              Menor
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="thirty-mins" id="thirty-mins-same" value="same">
+              Igual
+            </label>
+          </div>
+
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="thirty-mins" id="thirty-mins-worse" value="worse">
+              Mayor
+            </label>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+
+
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/geo.js"></script>
+  </body>
+</html>
