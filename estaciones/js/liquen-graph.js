@@ -81,6 +81,6 @@ function getLimits(start,end,serie){
 
 function playSound(volume){
   var x = document.getElementById('audioElement');
-  x.volume = volume/100;
+  x.volume = Math.round(volume/100);
   x.play();
 }

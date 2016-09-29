@@ -47,7 +47,7 @@ $(document).ready(function() {
       playSound(volume)
     });
     // Load Human data
-    $.getJSON('data/human.json?start=' + start + "&end=" + end, function(resp) {
+    $.getJSON('estaciones/data/human.json?start=' + start + "&end=" + end, function(resp) {
       data = new Array();
       var serie = {
         key: "Noise",
@@ -106,7 +106,7 @@ $(document).ready(function() {
     loadNoice(device);
   });
 
-  $.getJSON('data/devices.json', function(data) {
+  $.getJSON('estaciones/data/devices.json', function(data) {
     data.forEach(function(d) {
       var template = '<h2>{title}</h2><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
       var popup = template.replace('{title}', d.name);
