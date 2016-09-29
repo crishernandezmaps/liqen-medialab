@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sound</title>
+<!-- based on https://github.com/bignerdranch/music-frequency-d3 -->
+
+  </head>
+
+  <body>
+
+    <!-- **Audio** -->
+    <audio id="audioElement" src="./audio/city-sound.ogg"></audio>
+    <div>
+      <button onclick="document.getElementById('audioElement').play()">></button>
+      <button onclick="document.getElementById('audioElement').pause()">||</button>
+      <!-- <button onclick="document.getElementById('audioElement').volume+=0.1">+</button> -->
+      <!-- <button onclick="document.getElementById('audioElement').volume-=0.1">-</button> -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://tonejs.github.io/CDN/latest/Tone.js"></script>
+    <script src="sound.js"></script>
+
+    <script id="audioElement" type="text/javascript">
+    //make the noise and connect it to the output
+    var noise = new Tone.Noise({
+      "volume" : -20,
+      "type" : "brown"
+    }).toMaster();
+  </script>
+    <!-- **Audio** -->
+  </body>
+</html>
