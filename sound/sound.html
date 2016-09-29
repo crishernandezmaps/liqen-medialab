@@ -5,11 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Sound</title>
 <!-- based on https://github.com/bignerdranch/music-frequency-d3 -->
-
+    <style>
+      #player .graph svg{
+        width: 100%;
+        height: 200px;
+      }
+    </style>
   </head>
 
   <body>
 
+    <div id="player">
+      <div class="graph"></div>
+    </div>
     <!-- **Audio** -->
     <audio id="audioElement" src="./audio/city-sound.ogg"></audio>
     <div>

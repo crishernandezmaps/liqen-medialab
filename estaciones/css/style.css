@@ -54,12 +54,18 @@ ul{
 #player{
   clear:both;
   width: 100%;
-  border: 1px solid;
   height: 150px;
+}
+#player .graph{
+  width: 90%;
+  float:left;
+}
+#player .graph svg{
+  width: 100%;
 }
 #player .controls{
   float:right;
-  width: 10%;
+  width: 6%;
   height: 150px;
   display: inline-block;
 }

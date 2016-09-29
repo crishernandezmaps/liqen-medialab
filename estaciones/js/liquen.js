@@ -14,11 +14,13 @@ $(document).ready(function() {
     end = moment().format()
     machineData = d3.select('#machine-sensor svg');
     humanData = d3.select('#human-sensor svg');
+    var volume = 30;
 
     $.getJSON('https://api.smartcitizen.me/v0/devices/' + device + '/readings?all_intervals=true&from=' + start + '&rollup=12h&sensor_id=7&to=' + end, function(resp) {
       var points = resp.readings.map(function(d) {
         ts = new Date(d[0]);
         value = (d[1] != null) ? d[1] : 0;
+        volume = Math.max(volume,value);
         return {
           x: ts.getTime(),
           y: value
@@ -32,7 +34,6 @@ $(document).ready(function() {
         type: 'bar',
         yAxis: 1
       }
-
       data.push(serie);
       data.push(getLimits(start, end, "EU"));
       data.push(getLimits(start, end, "OMS"));
@@ -42,8 +43,8 @@ $(document).ready(function() {
         .transition().duration(1200)
         .call(machineSensor);
 
-
-      nv.utils.windowResize(machineSensor.update);
+      console.log("Vol:" + volume);
+      playSound(volume)
     });
     // Load Human data
     $.getJSON('data/human.json?start=' + start + "&end=" + end, function(resp) {

@@ -78,3 +78,9 @@ function getLimits(start,end,serie){
   }
   return {key:label,type:"line",yAxis:2,values:points,color:color};
 }
+
+function playSound(volume){
+  var x = document.getElementById('audioElement');
+  x.volume = volume/100;
+  x.play();
+}

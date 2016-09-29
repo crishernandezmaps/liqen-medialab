@@ -21,15 +21,12 @@ $(document).ready(function () {
   var frequencyData = new Uint8Array(analyser.frequencyBinCount);
   var frequencyData = new Uint8Array(200);
 
-  var svgHeight = '400';
+  var svgHeight = '150';
   var svgWidth = '1310';
   var barPadding = '1';
 
-  function createSvg(parent, height, width) {
-    return d3.select(parent).append('svg').attr('height', height).attr('width', width);
-  }
 
-  var svg = createSvg('body', svgHeight, svgWidth);
+  var svg = d3.select('#player > .graph').append('svg');
 
   // Create our initial D3 chart.
   svg.selectAll('rect')
