@@ -4,155 +4,68 @@ $(document).ready(function() {
   var countries = [];
   var cities = ['Madrid', 'London', 'Santiago'];
   var machineSensor = nv.models.multiChart(),
-      humanSensor = nv.models.multiChart();
+    humanSensor = nv.models.multiChart();
   var machineData
   var humanData;
 
-  var tickFormats = {
-    "year":"%Y",
-    "month": "%b",
-    "week": "%x",
-    "day": "%x",
-    "hour": "%X",
-  }
 
-  var chartOptions = {
-    duration: 300,
-    //useInteractiveGuideline: true,
-    focusEnable:false,
-    margin:{right:50},
-    showLegend:false
-  }
-
-  function timeTickFormat(d){
-    zoom = 'day';
-    return d3.time.format(tickFormats[zoom])(new Date(d));
-  }
-
-  function noiseTickFormat(d){
-    if (d == null) {
-        return 'N/A';
-    }
-    return d3.format(',.2f')(d);
-  }
-
-  function getLimits(start,end,serie){
-    if(serie=="EU"){
-      label = "EU Directive";
-      points = [{x:new Date(start),y:55},{x:new Date(end),y:55}];
-      color = "blue";
-    }
-    else if(serie=="OMS"){
-      label = "OMS Recomendation";
-      points = [{x:new Date(start),y:50},{x:new Date(end),y:50}];
-      color = "orange";
-    }
-    return {key:label,type:"line",yAxis:2,values:points,color:color};
-  }
-
-  function loadNoice(device){
+  function loadNoice(device) {
     start = moment().subtract(7, 'days').format();
     end = moment().format()
-    $.getJSON('https://api.smartcitizen.me/v0/devices/'+device+'/readings?all_intervals=true&from='+start+'&rollup=12h&sensor_id=7&to='+end, function(resp) {
-      var points = resp.readings.map(function(d){
+    machineData = d3.select('#machine-sensor svg');
+    humanData = d3.select('#human-sensor svg');
+
+    $.getJSON('https://api.smartcitizen.me/v0/devices/' + device + '/readings?all_intervals=true&from=' + start + '&rollup=12h&sensor_id=7&to=' + end, function(resp) {
+      var points = resp.readings.map(function(d) {
         ts = new Date(d[0]);
-        value = (d[1]!=null)?d[1]:0;
-        return {x:ts.getTime(),y:value};
+        value = (d[1] != null) ? d[1] : 0;
+        return {
+          x: ts.getTime(),
+          y: value
+        };
       })
 
       data = new Array();
       var serie = {
-        key:"Noise",
-        values:points,
-        type:'bar',
-        yAxis:1
+        key: "Noise",
+        values: points,
+        type: 'bar',
+        yAxis: 1
       }
 
       data.push(serie);
-      data.push(getLimits(start,end,"EU"));
-      data.push(getLimits(start,end,"OMS"));
+      data.push(getLimits(start, end, "EU"));
+      data.push(getLimits(start, end, "OMS"));
 
       machineData
-              .datum(data)
-              .transition().duration(1200)
-              .call(machineSensor);
+        .datum(data)
+        .transition().duration(1200)
+        .call(machineSensor);
 
 
-     nv.utils.windowResize(machineSensor.update);
-   });
-   // Load Human data
-   data = new Array();
-   var serie = {
-     key:"Noise",
-     values:[],
-     type:'bar',
-     yAxis:1
-   }
+      nv.utils.windowResize(machineSensor.update);
+    });
+    // Load Human data
+    $.getJSON('data/human.json?start=' + start + "&end=" + end, function(resp) {
+      data = new Array();
+      var serie = {
+        key: "Noise",
+        values: resp,
+        type: 'bar',
+        yAxis: 1
+      }
 
-   data.push(serie);
-   data.push(getLimits(start,end,"EU"));
-   data.push(getLimits(start,end,"OMS"));
+      data.push(serie);
+      data.push(getLimits(start, end, "EU"));
+      data.push(getLimits(start, end, "OMS"));
 
-console.log(humanData);
-
-   humanData
-           .datum(data)
-           .transition().duration(1200)
-           .call(humanSensor);
-
-
+      humanData
+        .datum(data)
+        .transition().duration(1200)
+        .call(humanSensor);
+    });
   }
 
-  nv.addGraph(function(){
-    machineSensor.options(chartOptions);
-    machineSensor.yDomain1([0,150]);
-    machineSensor.yDomain2([0,150]);
-
-    machineSensor.xAxis
-        .axisLabel("Time (s)")
-        .tickFormat(timeTickFormat)
-        .staggerLabels(true)
-        .showMaxMin(false);
-
-    machineSensor.yAxis1
-        .axisLabel('Noise (db)')
-        .tickFormat(noiseTickFormat);
-    machineSensor.yAxis2
-            .tickFormat(noiseTickFormat);
-
-    machineData = d3.select('#machine-sensor > svg');
-    machineData
-            .datum([])
-            .transition().duration(1200)
-            .call(machineSensor);
-
-    return machineSensor;
-  });
-
-  nv.addGraph(function(){
-    humanSensor.options(chartOptions);
-    humanSensor.yDomain1([0,150]);
-    humanSensor.yDomain2([0,150]);
-
-    humanSensor.xAxis
-        .axisLabel("Time (s)")
-        .tickFormat(timeTickFormat)
-        .staggerLabels(true);
-
-    humanSensor.yAxis1
-        .axisLabel('Noise (db)')
-        .tickFormat(noiseTickFormat);
-    humanSensor.yAxis2
-        .tickFormat(noiseTickFormat);
-
-    humanData = d3.select('#human-sensor svg');
-    humanData
-            .datum([])
-            .transition().duration(1200)
-            .call(humanSensor);
-
-    return humanSensor;
-  });
 
   var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -179,12 +92,15 @@ console.log(humanData);
   };
 
   var overlays = {
-    "Cities": devices
+    "Devices": devices
   };
 
   L.control.layers(baseLayers, overlays).addTo(map);
 
-  $(document).on('click','.details',function(e){
+  nv.addGraph(new LiQuenGraph('#machine-sensor svg', machineSensor));
+  nv.addGraph(new LiQuenGraph('#human-sensor svg', humanSensor));
+
+  $(document).on('click', '.details', function(e) {
     var device = $(e.target).data('device');
     loadNoice(device);
   });
@@ -201,5 +117,5 @@ console.log(humanData);
     });
   })
 
-  //loadNoice(3675);
+  loadNoice(3675);
 });
