@@ -12,6 +12,7 @@ $(document).ready(function () {
   //var db data from machines and humans:
   var lec = 30;
   var x = document.getElementById('audioElement');
+  x.loop = true;
   x.volume = lec/100;
 
 

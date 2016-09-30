@@ -19,6 +19,7 @@ title: "Human sensor tool"
 
 
       <form action="https://liqen-pre.herokuapp.com/metrics" method="post">
+<<<<<<< HEAD
         <fieldset class="form-group">
 <<<<<<< HEAD
           <h2 class="en">Actual location</h2>
@@ -38,6 +39,8 @@ title: "Human sensor tool"
         <input type="hidden" value="" id="longitude" name="longitude">
         <input type="hidden" value="" id="sensor-id" name="sensor_id">
 
+=======
+>>>>>>> baf73c77f34fcc9028dd76f91de6151a83c3a48a
         <!-- q 1 -->
 
         <fieldset class="form-group">
@@ -327,6 +330,20 @@ title: "Human sensor tool"
             </label>
           </div>
         </fieldset>
+
+        <fieldset class="form-group">
+          <legend class="en">Your location</legend>
+          <p class="en">In order to proccess your answers, please give us your current location.</p>
+
+          <button type="button" class="btn btn-primary" id="get-location">
+            Give geo-location
+          </button>
+          <p style="display:inline-block" id="nearest-sensor" class="en" hidden>Nearest sensor: <span id="nearest-sensor-text" class="font-weight-bold"></span></p>
+        </fieldset>
+
+        <input type="hidden" value="" id="latitude" name="latitude">
+        <input type="hidden" value="" id="longitude" name="longitude">
+        <input type="hidden" value="" id="sensor-id" name="sensor_id">
 
         <button type="submit" class="btn btn-primary">Send</button>
 
