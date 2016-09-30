@@ -5,16 +5,13 @@ layout: page
 
       <div class="container text-xs-left">
         <br><br>
-        <h2>Instrucciones</h2>
         <h2 class="en">Instructions</h2>
         <ol>
-          <li>Sitúese en el espacio físico y realice una inspección visual del entorno. Identifique las actividades a su alrededor.</li>
           <li class ="en">Please identify activities sorrunding you inspecting and visualizing elements from your nearest environment</li>
         </ol>
 
         <br><br>
         <div class="text-xs-center">
-          <p>Baje para comenzar el cuestionario</p>
           <p class="en">Scroll down to start</p>
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
         </div>
@@ -26,15 +23,12 @@ layout: page
       <br><br>
       <form action="https://liqen-pre.herokuapp.com/metrics" method="post">
         <fieldset class="form-group">
-          <h2>Ubicación actual</h2>
           <h2 class="en">Actual location</h2>
-          <p>Para saber qué espacio está valorando, necesitamos su permiso para acceder a la ubicación de su teléfono móvil.</p>
           <p class="en">In order to proccess your answers we need to access to your location.</p>
 
           <button type="button" class="btn btn-primary" id="get-location">
-            Otorgar ubicación/Please, allow geo-location
+            Please, allow geo-location
           </button>
-          <p style="display:inline-block" id="nearest-sensor" hidden>Sensor más próximo: <span id="nearest-sensor-text" class="font-weight-bold"></span></p>
           <p style="display:inline-block" id="nearest-sensor" class="en" hidden>Nearest sensor: <span id="nearest-sensor-text" class="font-weight-bold"></span></p>
         </fieldset>
 
@@ -45,26 +39,25 @@ layout: page
         <!-- q 1 -->
 
         <fieldset class="form-group">
-          <legend>Lugar de procedencia</legend>
           <legend class="en">From where did you come?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="procedence" id="procedence-home" value="home">
-              Domicilio o vivienda / Your house
+              From Your house
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="procedence" id="procedence-transit" value="transit">
-              En tránsito / Commuting
+              From Commuting
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="procedence" id="procedence-other" value="other">
-              Otro / Other
+              Other
             </label>
           </div>
         </fieldset>
@@ -73,26 +66,25 @@ layout: page
         <!-- q 2 -->
 
         <fieldset class="form-group">
-          <legend>Considera que el ruido es...</legend>
           <legend class="en">About the environmental noise...</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noise-disturbance" id="noise-disturbance-0" value="0">
-              No molesto / It does not bother me
+              It does not bother me
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noise-disturbance" id="noise-disturbance-1" value="1">
-              Molesto / It does bother me
+              It does bother me
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noise-disturbance" id="noise-disturbance-2" value="2">
-              Muy molesto / Very annoying
+              Very annoying
             </label>
           </div>
         </fieldset>
@@ -100,33 +92,32 @@ layout: page
         <!-- q 3 -->
 
         <fieldset class="form-group">
-          <legend>¿Cuál es el origen del ruido?</legend>
           <legend class="en">Which is the source of the noise?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="source" id="source-motor" value="motor">
-              Vehículos por motor / Motorize vehicles
+              Motorize vehicles
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="source" id="source-roadworks" value="roadworks">
-              Trabajos en la vía pública / Works on the street
+              Works on the street
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="source" id="source-leisure" value="leisure">
-              Actividades deportivo-recreativas y de ocio / Leisure activities
+              Leisure activities (sports games, street artist, etc.)
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="source" id="source-unknown" value="unknown">
-              Desconocido / Unkwon
+              Unkwon
             </label>
           </div>
         </fieldset>
@@ -135,40 +126,39 @@ layout: page
         <!-- q 4 -->
 
         <fieldset class="form-group">
-          <legend>¿Cree que se trata de un área...?</legend>
           <legend class="en">According to you, this area is?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-0" value="0">
-              Silenciosa / Quiet
+              Quiet
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-1" value="1">
-              Levemente ruidosa / Slightly noisy
+              Slightly noisy
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-2" value="2">
-              Tolerablemente ruidosa / I can tolerate this noise
+              Noisy but I can tolerate it
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-3" value="3">
-              Ruidosa / Noisy
+              Noisy
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="noisy-area" id="noisy-area-4" value="4">
-              Especialmente ruidosa / Particularly noise
+              Particularly noise
             </label>
           </div>
         </fieldset>
@@ -177,26 +167,25 @@ layout: page
         <!-- q 5 -->
 
         <fieldset class="form-group">
-          <legend>¿Cree que conciliar el sueño o descansar aquí sería...?</legend>
           <legend class="en">Do you considere that falling asleep in this area must be...?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="sleep-quality" id="sleep-quality-2" value="2">
-              Fácil / Easy
+              Easy
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="sleep-quality" id="sleep-quality-1" value="1">
-              Difícil / Hard
+              Hard
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="sleep-quality" id="sleep-quality-0" value="0">
-              Imposible / Impossible
+              Impossible
             </label>
           </div>
         </fieldset>
@@ -205,19 +194,18 @@ layout: page
         <!-- q 6 -->
 
         <fieldset class="form-group">
-          <legend>¿Podría trabajar en un ambiente así?</legend>
           <legend class="en">Could you work on an environment with this level of noise?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="for-working-here" id="for-working-here-yes" value="yes">
-              Sí / Yes
+              Yes
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="for-working-here" id="for-working-here-no" value="no">
-              No / No
+              No
             </label>
           </div>
         </fieldset>
@@ -225,26 +213,25 @@ layout: page
         <!-- q 7 -->
 
         <fieldset class="form-group">
-          <legend>¿Considera que en <strong>su lugar de residencia</strong>, el ruido es...?</legend>
-          <legend class="en">About your residencial area, would you say the noise there is:</legend>
+          <legend class="en">About your <strong>residencial area</strong>, would you say the noise there is:</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="at-home" id="at-home-better" value="better">
-              Menor que aquí / Less than here
+              Less than here
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="at-home" id="at-home-same" value="same">
-              Igual que aquí / Same as here
+              Same as here
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="at-home" id="at-home-worse" value="worse">
-              Mayor que aquí / More than here
+              More than here
             </label>
           </div>
         </fieldset>
@@ -252,19 +239,18 @@ layout: page
         <!-- q 8 -->
 
         <fieldset class="form-group">
-          <legend>¿Cree que el ruido es...?</legend>
           <legend class="en">Do you think the noise here is...</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="continuous" id="continuous-yes" value="yes">
-              Continuo / Permanent
+              Permanent
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="continuous" id="continuous-no" value="no">
-              Intermitente / Intermittent
+              Intermittent
             </label>
           </div>
         </fieldset>
@@ -272,19 +258,18 @@ layout: page
         <!-- q 9 -->
 
         <fieldset class="form-group">
-          <legend>¿Elegiría esta area para vivir?</legend>
           <legend class="en">Would you considere living in this area?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="for-living-here" id="live-here-yes" value="yes">
-              Sí / Yes
+              Yes
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="for-living-here" id="live-here-no" value="no">
-              No / No
+              No
             </label>
           </div>
         </fieldset>
@@ -292,26 +277,25 @@ layout: page
         <!-- q 10 -->
 
         <fieldset class="form-group">
-          <legend>¿Cree que en otro momento del día el ruido es...?</legend>
           <legend class="en">Do you think the noise in this area during the day is...?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="other-time" id="other-time-better" value="better">
-              Menor que ahora / Less than now
+              Less than now
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="other-time" id="other-time-same" value="same">
-              Igual que ahora / Same is now
+              Same is now
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="other-time" id="other-time-worse" value="worse">
-              Mayor que ahora / More than now
+              More than now
             </label>
           </div>
         </fieldset>
@@ -319,31 +303,30 @@ layout: page
         <!-- q 11 -->
 
         <fieldset class="form-group">
-          <legend>Comparado con el momento en el que inició el test, el ruido ahora es...?</legend>
           <legend class="en">In comparission with the starting moment of this survey, the noise now is...?</legend>
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="thirty-mins" id="thirty-mins-better" value="better">
-              Menor / Less than before
+              Less than before
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="thirty-mins" id="thirty-mins-same" value="same">
-              Igual / Equal than before
+              Equal than before
             </label>
           </div>
 
           <div class="form-check">
             <label class="form-check-label">
               <input type="radio" class="form-check-input" name="thirty-mins" id="thirty-mins-worse" value="worse">
-              Mayor / More than before
+              More than before
             </label>
           </div>
         </fieldset>
 
-        <button type="submit" class="btn btn-primary">Enviar / Send</button>
+        <button type="submit" class="btn btn-primary">Send</button>
 
 
 
