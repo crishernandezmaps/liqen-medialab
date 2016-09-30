@@ -1,23 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/index.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Noise perception questionaire</title>
-
-    <style>
-      font-style: italic;
-    </style>
-
-  </head>
-  <body>
     <div class="splash-screen bg-inverse text-xs-center">
-      <h1>
-        <img src="../imgs/logo.png" height="206" width="373" alt="" style="max-height: 100px; width: auto;">
-      </h1>
 
       <div class="container text-xs-left">
         <br><br>
@@ -366,8 +348,4 @@
       </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/geo.js"></script>
-  </body>
-</html>
+    <script src="{{ "/form/js/geo.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
