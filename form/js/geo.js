@@ -11,7 +11,7 @@ x.addEventListener('click', function() {
   $('#get-location').attr('disabled', true)
 
   if (navigator.geolocation) {
-    $('#get-location').text('Obteniendo permisos...')
+    $('#get-location').text('Getting permissions...')
 
     getCurrentPosition()
       .then(function showPosition(position) {
@@ -22,7 +22,7 @@ x.addEventListener('click', function() {
         $('#longitude').val(lon)
 
         // Fetch to the API
-        $('#get-location').text('Buscando sensor cercano...')
+        $('#get-location').text('Searching a sensor...')
         return $.ajax({
           url: 'https://api.smartcitizen.me/v0/devices',
           data: {
@@ -32,7 +32,7 @@ x.addEventListener('click', function() {
       })
       .then(function (data, textStatus, jqXHR) {
         $('#get-location')
-          .text('Listo!')
+          .text('Done!')
           .removeClass('btn-primary')
           .addClass('btn-success')
         // Take the first one
