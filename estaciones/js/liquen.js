@@ -47,11 +47,11 @@ $(document).ready(function() {
       playSound(volume)
     });
     // Load Human data
-    $.getJSON('https://liquen-pre.herokuapp.com/metrics?device='+device+'&start=' + start + "&end=" + end, function(resp) {
-      data = new Array();
+    $.getJSON('https://liqen-pre.herokuapp.com/metrics?device='+device+'&start=' + start + "&end=" + end, function(resp) {
+      data = resp || [{x:0,y:0}];
       var serie = {
         key: "Noise",
-        values: resp,
+        values: data,
         type: 'bar',
         yAxis: 1
       }
