@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const mongodb = require('mongodb');
 const calculateScore = require('./lib/logic')
 const db = require('./lib/db')
 
@@ -12,12 +11,16 @@ app.use(express.static('public'))
 
 // "index.html"
 app.get('/metrics', function (req, res) {
-  const sensor = req.body.device
-  const start  = Date.parse(req.body.start)
-  const end    = Date.parse(req.body.end)
+  const sensor = req.params.device || 0
+  const start  = Date.parse(req.params.start) || 0
+  const end    = Date.parse(req.params.end) || Date.now()
   db.read({ sensor, start, end})
     .then(function (docs) {
       res.json(docs)
+    })
+    .catch(function (err) {
+      console.log(err)
+      res.send(err)
     })
 })
 
@@ -43,7 +46,7 @@ app.post('/metrics', function (req, res) {
 
   const result = {
     timestamp: Date.now(),
-    sensor: req.body.sensor_id,
+    sensor: req.body.sensor_id || 0,
     position: {
       latitude: req.body.latitude,
       longitude: req.body.longitude,
@@ -58,6 +61,9 @@ app.post('/metrics', function (req, res) {
   db.write(result)
     .then(function (result) {
       res.redirect('http://liqenproject.org')
+    })
+    .catch(function (err) {
+      res.json(err)
     })
 })
 

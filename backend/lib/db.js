@@ -1,3 +1,5 @@
+const mongodb = require('mongodb');
+
 /**
  * Insert a metrics document into the database
  *
@@ -6,14 +8,20 @@
 module.exports.write = function (data) {
   return new Promise(function (accept, reject) {
     mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, db) {
-      if (err) reject(err)
+      if (err) {
+        reject(err)
+        return
+      }
       // Note that the insert method can take either an array or a dict.
       
       // Select "table" (collection)
       const metrics = db.collection('metrics');
 
       metrics.insert([data], function(err, result) {
-        if (err) reject(err)
+        if (err) {
+          reject(err)
+          return
+        }
 
         accept(result)
       })
@@ -31,13 +39,18 @@ module.exports.write = function (data) {
  *
  * Returns a Promise fulfilled with the data from the DB
  */
-module.exports.select = function (options) {
+module.exports.read = function (options) {
   const sensor = options.sensor
   const start  = options.start
   const end    = options.end
+
+  console.log(sensor, start, end)
   return new Promise(function (accept, reject) {
     mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, db) {
-      if (err) reject(err)
+      if (err) {
+        reject(err)
+        return
+      }
       // Note that the insert method can take either an array or a dict.
       
       // Select "table" (collection)
@@ -52,7 +65,10 @@ module.exports.select = function (options) {
           }
         })
         .toArray(function (err, docs) {
-          if (err) reject(err)
+          if (err) {
+            reject(err)
+            return
+          }
           
           accept(docs)
         })
