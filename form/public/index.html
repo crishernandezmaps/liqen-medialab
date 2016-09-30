@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Liqen // form</title>
+    <title>Noise perception questionaire</title>
 
   </head>
   <body>
@@ -15,30 +16,38 @@
       </h1>
 
       <div class="container text-xs-left">
+        <br><br>
         <h2>Instrucciones</h2>
         <ol>
           <li>Sitúese en el espacio físico y realice una inspección visual del entorno.</li>
           <li>Identifique las actividades a su alrededor.</li>
         </ol>
 
-        <button type="button" class="btn btn-primary">Comenzar cuestionario</button>
+        <br><br>
+        <div class="text-xs-center">
+          <p>Baje para comenzar el cuestionario</p>
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </div>
+        <br><br>
       </div>
     </div>
 
     <div class="container">
-
+      <br><br>
       <form action="/" method="post">
         <fieldset class="form-group">
-          <legend>Ubicación actual</legend>
+          <h2>Ubicación actual</h2>
           <p>Para saber qué espacio está valorando, necesitamos su permiso para acceder a la ubicación de su teléfono móvil.</p>
         
           <button type="button" class="btn btn-primary" id="get-location">
             Otorgar ubicación
           </button>
+          <p style="display:inline-block" id="nearest-sensor" hidden>Sensor más próximo: <span id="nearest-sensor-text" class="font-weight-bold"></span></p>
         </fieldset>
 
         <input type="hidden" value="" id="latitude" name="latitude">
         <input type="hidden" value="" id="longitude" name="longitude">
+        <input type="hidden" value="" id="sensor-id" name="sensor_id">
 
         <!-- q 1 -->
 
