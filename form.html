@@ -309,7 +309,30 @@ permalink: /form/
             </label>
           </div>
         </fieldset>
+        <fieldset class="form-group">
+          <legend>Choose your location</legend>
+          <div class="radio">
+            <label>
+              <input type="radio" name="sensor_id" id="sensor_id-london" value="3593" checked>
+              London
+            </label>
+          </div>
 
+          <div class="radio">
+            <label>
+              <input type="radio" name="sensor_id" id="sensor_id-madrid" value="170" checked>
+              Madrid
+            </label>
+          </div>
+
+          <div class="radio">
+            <label>
+              <input type="radio" name="sensor_id" id="sensor_id-santiago" value="3683" checked>
+              Santiago de Chile
+            </label>
+          </div>
+        </fieldset>
+        <!--
         <fieldset class="form-group">
           <legend>Your location</legend>
           Before you send your answers, please give us your current location to find out your nearest sensor
@@ -319,11 +342,13 @@ permalink: /form/
               Give geo-location
             </button>
           </p>
+          <p id="nearest-sensor" class="en" hidden>Nearest sensor: <span id="nearest-sensor-text" class="font-weight-bold"></span></p>
         </fieldset>
 
         <input type="hidden" value="" id="latitude" name="latitude">
         <input type="hidden" value="" id="longitude" name="longitude">
-        <input type="hidden" value="" id="sensor-id" name="sensor_id">
+        <input type="hidden" value="" id="sensor-id" name="sensor_id_calc">
+        -->
 
         <fieldset class="form-group">
           <legend>Disclosure</legend>
@@ -331,6 +356,7 @@ permalink: /form/
           <p class="text-center">
             <button type="submit" class="btn btn-primary">Send</button>
           </p>
+          
         </fieldset>
       </form>
 
