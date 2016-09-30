@@ -7,7 +7,7 @@ description: "Identifying Urban Environmental Conflicts"
 
 
 # Secondary Parameters
-baseurl: "/liqen-project"
+#baseurl: "/liqen-project"
 header-img: img/home-bg.jpg
 headercolor: "#FFFFFF"
 logo: img/logo.png
