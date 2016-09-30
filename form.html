@@ -332,25 +332,27 @@ title: "Human sensor tool"
         </fieldset>
 
         <fieldset class="form-group">
-          <legend class="en">Your location</legend>
-          <p class="en">In order to proccess your answers, please give us your current location.</p>
+          <legend>Your location</legend>
+          Before you send your answers, please give us your current location to find out your nearest sensor
 
-          <button type="button" class="btn btn-primary" id="get-location">
-            Give geo-location
-          </button>
-          <p style="display:inline-block" id="nearest-sensor" class="en" hidden>Nearest sensor: <span id="nearest-sensor-text" class="font-weight-bold"></span></p>
+          <p>
+            <button type="button" class="btn btn-primary" id="get-location">
+              Give geo-location
+            </button>
+          </p>
         </fieldset>
 
         <input type="hidden" value="" id="latitude" name="latitude">
         <input type="hidden" value="" id="longitude" name="longitude">
         <input type="hidden" value="" id="sensor-id" name="sensor_id">
 
-        <button type="submit" class="btn btn-primary">Send</button>
-
-        <p><strong>Disclosure:</strong> this is a research project run by a group of citizens. Your answers would never be public or know by a third party, just the general result.</p>
-
-
-
+        <fieldset class="form-group">
+          <legend>Disclosure</legend>
+          This is a research project run by a group of citizens. Your answers would never be public or know by a third party, just the general result.
+          <p class="text-center">
+            <button type="submit" class="btn btn-primary">Send</button>
+          </p>
+        </fieldset>
       </form>
 
     <script src="{{ "/form/js/geo.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
