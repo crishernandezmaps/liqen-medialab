@@ -28,7 +28,7 @@ layout: home
 <div class="row">
   <div class="cols-lg-12 col-md-12">
     <div id="player">
-        <audio id="audioElement" src="sound/audio/city-sound.ogg"></audio>
+        <audio id="audioElement" src="{{ "/sound/audio/city-sound.ogg" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></audio>
         <div class="graph"></div>
         <div class="controls">
             <ul>
