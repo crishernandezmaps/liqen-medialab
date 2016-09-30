@@ -122,6 +122,7 @@ app.post('/', function (req, res) {
 
   const result = {
     timestamp: Date.now(),
+    sensor: req.body.sensor_id,
     position: {
       latitude: req.body.latitude,
       longitude: req.body.longitude,
