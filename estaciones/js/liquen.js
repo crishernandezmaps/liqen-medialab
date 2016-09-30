@@ -118,5 +118,5 @@ $(document).ready(function() {
     });
   })
 
-  loadNoice(3675);
+  //loadNoice(3675);
 });

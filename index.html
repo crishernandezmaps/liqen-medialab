@@ -1,18 +1,11 @@
-<html>
-<head>
-    <title>LiQuen .::. Noise data</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-    <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="node_modules/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.css" />
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
+---
+layout: home
+---
+<div class="row">
+  <div class="col-lg-7 col-md-7">
     <div id="map"></div>
+  </div>
+  <div class="col-lg-5 col-md-5">
     <div id="graphs">
         <div>
             <ul class="vis-filter">
@@ -30,6 +23,10 @@
             <svg></svg>
         </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="cols-lg-12 col-md-12">
     <div id="player">
         <audio id="audioElement" src="sound/audio/city-sound.ogg"></audio>
         <div class="graph"></div>
@@ -40,18 +37,16 @@
             </ul>
         </div>
     </div>
-    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js" charset="utf-8"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+  </div>
+</div>
 
-    <script src="node_modules/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-    <script src="estaciones/js/liquen-graph.js"></script>
-    <script src="estaciones/js/liquen.js"></script>
+<script src="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 
-    <script src="sound/sound.js"></script>
+<script src="{{ "/js/leaflet-markercluster/leaflet.markercluster.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+<script src="{{ "/estaciones/js/liquen-graph.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+<script src="{{ "/estaciones/js/liquen.js" | prepend: site.baseurl | prepend: site.url }}"></script>
 
-</body>
-
-</html>
+<script src="{{ "/sound/sound.js" | prepend: site.baseurl | prepend: site.url }}"></script>

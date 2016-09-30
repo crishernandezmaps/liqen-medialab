@@ -7,3 +7,78 @@ body, html {
   width: 100%;
   min-height: 100%;
 }
+
+ul{
+  list-style: none;
+}
+.vis-filter li{
+  float:left;
+  margin:0 5px;
+}
+.vis-filter{
+  font-size: 12px;
+  margin: 0 auto;
+  width: 50%;
+}
+.vis-filter li i{
+  margin-right: 5px;
+}
+.noise i{
+  color:rgb(31, 119, 180);
+}
+.eu i{
+  color:blue;
+}
+
+.oms i{
+  color:orange;
+}
+
+#map{
+  width: 100%;
+  height: 500px;
+  display:inline-block;
+  float:left;
+}
+
+#graphs{
+  width: 100%;
+  height: 500px;
+  float:right;
+}
+
+.sensor{
+  width: 100%;
+  height: 250px;
+  display: inline-block;
+}
+.sensor svg{
+  width: 88% !important;
+}
+.sensor i{
+  float:left;
+  padding-top:2em;
+  width: 1em;
+}
+
+#player{
+  clear:both;
+  width: 100%;
+  height: 150px;
+}
+#player .graph{
+  width: 90%;
+  float:left;
+}
+#player .graph svg{
+  width: 100%;
+}
+#player .controls{
+  float:right;
+  width: 6%;
+  height: 150px;
+  display: inline-block;
+}
+#player .controls li{
+  margin-top: 2em;
+}
