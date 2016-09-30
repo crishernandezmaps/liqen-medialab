@@ -11,9 +11,9 @@ app.use(express.static('public'))
 
 // "index.html"
 app.get('/metrics', function (req, res) {
-  const sensor = req.params.device || 0
-  const start  = Date.parse(req.params.start) || 0
-  const end    = Date.parse(req.params.end) || Date.now()
+  const sensor = req.query.device || 0
+  const start  = Date.parse(req.query.start) || 0
+  const end    = Date.parse(req.query.end) || Date.now()
   db.read({ sensor, start, end})
     .then(function (docs) {
       res.json(docs)
