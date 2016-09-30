@@ -1,0 +1,45 @@
+# Members
+
+- name: Cristian
+  role: Data Scientist / Materials Informatics
+  img: https://avatars1.githubusercontent.com/u/7231251?v=3&s=460
+  github: ahmetcecen
+  gplus: https://plus.google.com/+AhmetCecen-GPlus
+  bio:
+  url: http://ahmetcecen.github.io/
+  visible: true
+
+- name: Maribel
+  role: Data Scientist / Materials Informatics
+  img: https://avatars1.githubusercontent.com/u/7231251?v=3&s=460
+  github: ahmetcecen
+  gplus: https://plus.google.com/+AhmetCecen-GPlus
+  bio:
+  url: http://ahmetcecen.github.io/
+  visible: true
+
+- name: Cármen
+  role: Data Scientist / Materials Informatics
+  img: https://avatars1.githubusercontent.com/u/7231251?v=3&s=460
+  github: ahmetcecen
+  gplus: https://plus.google.com/+AhmetCecen-GPlus
+  bio:
+  url: http://ahmetcecen.github.io/
+  visible: true
+
+
+- name: Carlos Saito
+  role: Data Scientist / Materials Informatics
+  img: https://pbs.twimg.com/profile_images/3364739062/5fb57349882aac3d40cb7e24de0c34a5_reasonably_small.jpeg
+  github: davidbrough1
+  bio:
+  url: http://davidbrough.net
+  visible: true
+
+- name: Diego Andrés Ramírez Aragón
+  role: Visualization and System Integration
+  img: https://secure.gravatar.com/avatar/9313fa5afb29c0aa50eebbe104fb9393.jpg?d=mm&s=200
+  url: https://lowfill.org/
+  github: lowfill
+  bio:
+  visible: true

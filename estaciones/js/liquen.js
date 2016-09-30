@@ -47,7 +47,7 @@ $(document).ready(function() {
       playSound(volume)
     });
     // Load Human data
-    $.getJSON('estaciones/data/human.json?start=' + start + "&end=" + end, function(resp) {
+    $.getJSON('https://liquen-pre.herokuapp.com/metrics?device='+device+'&start=' + start + "&end=" + end, function(resp) {
       data = new Array();
       var serie = {
         key: "Noise",
@@ -118,5 +118,5 @@ $(document).ready(function() {
     });
   })
 
-  //loadNoice(3675);
+  loadNoice(3675);
 });
