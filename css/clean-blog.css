@@ -343,6 +343,10 @@ form .row:first-child .floating-label-form-group {
   font-size: 16px;
   padding: 25px 35px;
 }
+.btn-xs {
+  font-size: 14px;
+  padding: 5px 10px;
+}
 .btn-default:hover,
 .btn-default:focus {
   background-color: #0085a1;
