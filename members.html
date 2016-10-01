@@ -5,12 +5,12 @@ description: "Collaborators working on this project."
 header-img: "img/home-bg.jpg"
 ---
 <hr>
-<h4>Promoters</h4>
+<h1>Promoters</h1>
 {% for member in site.data.members %} {% if member.promoter == true %}
 
 	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:10px; margin-right:10px; float:left; height: 100px; width:100px !important">
 
-	<h1>{{ member.name }}</h1>
+	<h2>{{ member.name }}</h2>
 
 	<h4>{{ member.role }}</h4>
 
@@ -41,12 +41,12 @@ header-img: "img/home-bg.jpg"
 </br>
 
 <hr>
-<h4>Collaborators</h4>
+<h1>Collaborators</h1>
 {% for member in site.data.members %} {% if member.collaborator == true %}
 
 	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; height: 100px; width:100px !important">
 
-	<h1>{{ member.name }}</h1>
+	<h2>{{ member.name }}</h2>
 
 	<h4>{{ member.role }}</h4>
 

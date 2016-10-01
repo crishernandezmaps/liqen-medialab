@@ -1,6 +1,5 @@
 ---
 layout: page
-title: ""
 description: "What is this project about?"
 header-img: "img/home-bg.jpg"
 ---
