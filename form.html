@@ -20,6 +20,44 @@ permalink: /form/
 
 
       <form action="https://liqen-pre.herokuapp.com/metrics" method="post">
+
+        <!-- Location -->
+
+        <fieldset class="form-group" id="choose-sensor">
+          <legend>Choose the nearest sensor</legend>
+          <button type="button" class="btn btn-primary btn-xs" id="get-location" disabled>Detect automatically</button>
+          <span class="text-danger" id="location-not-available" >You need to configure your device</span>
+          <span id="nearest-sensor" hidden>Nearest sensor: <strong id="nearest-sensor-text">Medialab Prado - </strong></span>
+
+          <p>Or choose it manually:</p>
+          <div class="radio">
+            <label>
+              <input type="radio" name="sensor_id" id="sensor_id-london" value="3593">
+              London
+            </label>
+          </div>
+
+
+          <div class="radio">
+            <label>
+              <input type="radio" name="sensor_id" id="sensor_id-madrid" value="170">
+              Madrid
+            </label>
+          </div>
+
+          <div class="radio">
+            <label>
+              <input type="radio" name="sensor_id" id="sensor_id-santiago" value="3683">
+              Santiago de Chile
+            </label>
+          </div>
+
+          <input type="hidden" value="" id="latitude" name="latitude">
+          <input type="hidden" value="" id="longitude" name="longitude">
+          <input type="hidden" value="" id="sensor-id-calc" name="sensor_id_calc">
+        </fieldset>
+
+
         <!-- q 1 -->
 
         <fieldset class="form-group">
@@ -309,29 +347,8 @@ permalink: /form/
             </label>
           </div>
         </fieldset>
-        <fieldset class="form-group">
-          <legend>Choose your location</legend>
-          <div class="radio">
-            <label>
-              <input type="radio" name="sensor_id" id="sensor_id-london" value="3593">
-              London
-            </label>
-          </div>
 
-          <div class="radio">
-            <label>
-              <input type="radio" name="sensor_id" id="sensor_id-madrid" value="170">
-              Madrid
-            </label>
-          </div>
-
-          <div class="radio">
-            <label>
-              <input type="radio" name="sensor_id" id="sensor_id-santiago" value="3683">
-              Santiago de Chile
-            </label>
-          </div>
-        </fieldset>
+        
         <!--
         <fieldset class="form-group">
           <legend>Your location</legend>

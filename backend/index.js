@@ -18,8 +18,8 @@ app.use(function(req, res, next) {
 // "index.html"
 app.get('/metrics', function (req, res) {
   const sensor = req.query.device || 0
-  const start  = Date.parse(req.query.start) || 0
-  const end    = Date.parse(req.query.end) || Date.now()
+  const start  = req.query.start || new Date(0).toISOString()
+  const end    = req.query.end || new Date().toISOString()
   db.read({ sensor, start, end})
     .then(function (docs) {
       res.json(docs)
@@ -51,8 +51,10 @@ app.post('/metrics', function (req, res) {
   const score = r.score
 
   const result = {
-    timestamp: Date.now(),
-    sensor: req.body.sensor_id || 0,
+    timestamp: (new Date()).toISOString(),
+    sensor: (req.body.sensor_id_calc !== -1 && req.body.sensor_id_calc)
+          || req.body.sensor_id
+          || -1,
     position: {
       latitude: req.body.latitude,
       longitude: req.body.longitude,
