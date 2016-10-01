@@ -14,6 +14,10 @@ header-img: "img/home-bg.jpg"
 
 	<h3>{{ member.role }}</h3>
 
+
+	{% if member.twitter %}
+	<span class="social-share-twitter"><a href="{{ member.twitter }}" title="twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a></span>
+	{% endif %}
 	{% if member.github %}
 	<span class="social-share-googleplus"><a href="https://github.com/{{ member.github }}" title="Github"><i class="fa fa-github"></i>&nbsp;Github</a></span>
 	{% endif %}
