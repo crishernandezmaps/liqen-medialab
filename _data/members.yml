@@ -50,15 +50,15 @@
   url: #
   promoter: true
 
-# - name: Miguel
-#   role:
-#   img: /img/.jpg
-# twitter: http://twitter.com/#
-#   github:
-#   gplus:
-#   bio:
-#   url: #
-#   promoter: true
+- name: Miguel Rubiales
+  role:
+  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/miguel.jpg?raw=true
+  twitter: http://twitter.com/#
+  github:
+  gplus:
+  bio: Sociologist, lecturer in research techniques, cartography and human geography in indaga.org and the research group Territorio, Población y Ciudadanía (UB).
+  url: #
+  promoter: true
 
 - name: Diego Andrés Ramírez Aragón
   role: Visualization and System Integration
@@ -70,7 +70,7 @@
   collaborator: true
 
 - name: Carlos Saito
-  role: Data Scientist / Materials Informatics
+  role: Data Scientist
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/carlos.jpg?raw=true
   github: davidbrough1
   bio:
@@ -78,7 +78,7 @@
   twitter: http://twitter.com/#
   collaborator: true
 
-- name: Cármen
+- name: Carmen
   role: Environmental Expert
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/logo.png?raw=true
   github:

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>liQen</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal-pk.css">
+		<link rel="stylesheet" href="css/theme-pk/black.css" id="theme">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body style="background: #131313">
+
+<!-- START -->
+		<div class="reveal"> <!-- first-->
+			<div class="slides">
+				<section>
+					<h1 style="color: #87cb3d">liQen</h1>
+					<h3>tools for data citizenship</h3>
+					<p>liqen/environment</p>
+				</section>
+
+				<section> <!--second -->
+					<h2 style="color: #87cb3d">What is this about?</h2>
+					<section>
+						<h3>Problematic</h3>
+							<ul>
+								<li><p class="fragment highlight-blue">Not enough or too much complicated tools for citizenship data (API, JSON?)</p></li>
+								<li><p class="fragment highlight-blue">Isolated groups of citizens working with data</p></li>
+								<li><p class="fragment highlight-blue">There is not enough data devolution [not just products... show me your data! Please ;) ]</p></li>
+							</ul>
+					</section>
+					<section>
+						<h3>Solution</h3>
+							<p class="fragment">We want to <span class="fragment highlight-blue">make visible</span> the efforts of numerous <span class="fragment highlight-blue">citizens</span> who are <span class="fragment highlight-blue">using and producing</span> open data everyday. We believe than <span class="fragment highlight-blue">we can cooperate</span> creating new tools to allow that people working on the new field of <span class="fragment highlight-blue">data citizenship</span> can collaborate with each other in a better way.</p>
+					</section>
+				</section>
+
+				<section> <!--third -->
+					<h2 style="color: #87cb3d">So... What is liQen?</h2>
+					<section>
+						<p class="fragment">liQen is a set of <span class="fragment highlight-red">tools</span> aims to... </p>
+						<ul>
+							<li><p class="fragment" style="color: #42affa">Collect</p></li>
+							<li><p class="fragment" style="color: #42affa">Deduplicate</p></li>
+							<li><p class="fragment" style="color: #42affa">Share</p></li>
+						</ul>
+						<p class="fragment"><span class="fragment highlight-red">Open Data</span> from cities around the world.</p>
+					</section>
+				</section>
+
+				<section>
+					<h2 style="color: #FF5E3A">Environmental Micro-conflicts</h2>
+					<section>
+						<p>Visualizar16 Case: noise pollution</p>
+						<ul>
+							<li><p class="fragment" style="color: #0BD318">Data from London, Madrid and Santiago (Chile)</p></li>
+							<li><p class="fragment" style="color: #0BD318">Crowdsource data from mobile app</p></li>
+							<li><p class="fragment" style="color: #0BD318">Visualization: comparative between datasets</p></li>
+						</ul>
+					</section>
+				</section>
+
+				<section> <!--Fouth -->
+					<h2 style="color: #87cb3d">How are you going to do that guys?</h2>
+					<section>
+						<ul>
+							<li><p class="fragment" style="color: #FF2A68">City Collector [npm module?]</p></li>
+							<li><p class="fragment" style="color: #FF2A68"><a href="#">Dat</a> and <a href="#">Filepizza</a></p></li>
+							<li><p class="fragment" style="color: #FF2A68">Data Merge [Github kind of...]</p></li>
+						</ul>
+					</section>
+				</section>
+
+				<section> <!--Sixth -->
+					<h2 style="color: #87cb3d">Team</h2>
+					<section>
+						<ul>
+							<li><p>Rafael Heiber: Geographer and Sociologist</p></li>
+							<li><p>Jaime González-Capitel: Philosopher</p></li>
+							<li><p>Cristian Hernández: Geographer (Data Analysis)</p></li>
+							<li><p>Maribel Mateos: Journalist</p></li>
+							<li><p>Miguel Rubiales: Sociologist and Cartograhper</p></li>
+							<li><p>Patricio Cabello: Social Psychologist</p></li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<img src="img/logo.png" style="height: 300px; width: 450px" >
+					<img src="img/logo-caf.png" style="height: 300px; width: 450px" >
+					<p><span style="color: red">Join us!</span> Thakns ;)</p>
+				</section>
+
+
+			</div>
+
+		</div>
+<!-- END -->
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal-pk.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
