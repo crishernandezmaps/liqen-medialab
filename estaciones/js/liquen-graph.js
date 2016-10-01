@@ -80,6 +80,7 @@ function playSound(volume){
 // properties (inherent) to get the desired URL data. Some String
 // operations are used (to normalize results across browsers).
 // @see http://james.padolsey.com/javascript/parsing-urls-with-the-dom/
+/*
 function parseURL(url) {
     var a =  document.createElement('a');
     a.href = url;
@@ -107,3 +108,4 @@ function parseURL(url) {
         segments: a.pathname.replace(/^/,'').split('/')
     };
 }
+*/

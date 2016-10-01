@@ -111,7 +111,7 @@ $(document).ready(function() {
     loadNoice(device);
   });
 
-  $.getJSON('estaciones/data/devices.json', function(data) {
+  $.getJSON('../estaciones/data/devices.json', function(data) {
     data.forEach(function(d) {
       var template = '<h2>{title}</h2><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
       var popup = template.replace('{title}', d.name);
@@ -123,7 +123,7 @@ $(document).ready(function() {
       devicesData = data;
     });
   })
-  var urlParams = parseURL(location.href);
-  console.log(urlParams);
+  //var urlParams = parseURL(location.href);
+  //console.log(urlParams);
   loadNoice(170);
 });
