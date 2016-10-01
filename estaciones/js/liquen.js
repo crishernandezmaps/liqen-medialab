@@ -16,10 +16,10 @@ $(document).ready(function() {
   var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-//    mbUrl = 'https://api.tiles.mapbox.com/v1/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
-    mbUrl = 'https://api.mapbox.com/styles/v1/crishernandezco/citr5vkrr00052hln1i64nmn8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
+    mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
+//    mbUrl = 'https://api.mapbox.com/styles/v1/crishernandezco/citr5vkrr00052hln1i64nmn8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
   var emerald = L.tileLayer(mbUrl, {
-      id: 'mapbox.liqen',
+      id: 'mapbox.emerald',
       attribution: mbAttr
     }),
     outdoors = L.tileLayer(mbUrl, {
@@ -29,12 +29,16 @@ $(document).ready(function() {
     pirates = L.tileLayer(mbUrl, {
       id: 'mapbox.pirates',
       attribution: mbAttr
+    })
+    liqen = L.tileLayer(mbUrl, {
+      id: 'mapbox.liqen',
+      attribution: mbAttr
     });
 
   var baseLayers = {
-    "Liquen":emerald,
-    //"Outdoors": outdoors,
-    //"Pirates":pirates
+    "Liqen":emerald,
+    "Outdoors": outdoors,
+    "Pirates":pirates
   };
 
   var overlays = {
@@ -58,7 +62,7 @@ $(document).ready(function() {
       humanData = d3.select('#human-sensor svg');
       var volume = 30;
 
-      $.getJSON('https://api.smartcitizen.me/v0/devices/' + device + '/readings?all_intervals=true&from=' + start + '&rollup=12h&sensor_id=7&to=' + end, function(resp) {
+      $.getJSON('https://api.smartcitizen.me/v0/devices/' + device + '/readings?all_intervals=true&from=' + start + '&rollup=6h&sensor_id=7&to=' + end, function(resp) {
         var points = resp.readings.map(function(d) {
           ts = new Date(d[0]);
           value = (d[1] != null) ? d[1] : 0;
@@ -127,8 +131,6 @@ $(document).ready(function() {
       zoom: 2,
       layers: [emerald, devices]
     });
-
-    L.control.layers(baseLayers, overlays).addTo(map);
 
     nv.addGraph(new LiQuenGraph('#machine-sensor svg', machineSensor));
     nv.addGraph(new LiQuenGraph('#human-sensor svg', humanSensor));

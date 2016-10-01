@@ -52,13 +52,16 @@ ul{
   height: 250px;
   display: inline-block;
 }
+
+.sensor .icon{
+  float:left;
+  padding-top:4em;
+  width: 1em;
+  display: inline-table;
+}
+
 .sensor svg{
   width: 88% !important;
-}
-.sensor i{
-  float:left;
-  padding-top:2em;
-  width: 1em;
 }
 
 #player{
