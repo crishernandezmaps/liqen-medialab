@@ -17,17 +17,23 @@ $(document).ready(function() {
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
-  var grayscale = L.tileLayer(mbUrl, {
-      id: 'mapbox.dark',
+  var emerald = L.tileLayer(mbUrl, {
+      id: 'mapbox.emerald',
       attribution: mbAttr
     }),
-    streets = L.tileLayer(mbUrl, {
-      id: 'mapbox.streets',
+    outdoors = L.tileLayer(mbUrl, {
+      id: 'mapbox.outdoors',
+      attribution: mbAttr
+    }),
+    pirates = L.tileLayer(mbUrl, {
+      id: 'mapbox.pirates',
       attribution: mbAttr
     });
+
   var baseLayers = {
-    "Grayscale": grayscale,
-    "Streets": streets
+    "Emerald":emerald,
+    "Outdoors": outdoors,
+    "Pirates":pirates
   };
 
   var overlays = {
@@ -43,7 +49,8 @@ $(document).ready(function() {
   function loadNoice(device) {
     deviceInfo = getDeviceInfo(device);
     if(deviceInfo){
-      map.setView([deviceInfo.latitude,deviceInfo.longitude],16)
+      map.setView([deviceInfo.latitude,deviceInfo.longitude],20);
+
       start = moment().subtract(7, 'days').format();
       end = moment().format()
       machineData = d3.select('#machine-sensor svg');
@@ -117,7 +124,7 @@ $(document).ready(function() {
     map = L.map('map', {
       center: [0.73, -10.99],
       zoom: 2,
-      layers: [grayscale, devices]
+      layers: [emerald, devices]
     });
 
     L.control.layers(baseLayers, overlays).addTo(map);
