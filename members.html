@@ -5,14 +5,14 @@ description: "Collaborators working on this project."
 header-img: "img/home-bg.jpg"
 ---
 <hr>
-<h3>Promoters</h3>
+<h4>Promoters</h4>
 {% for member in site.data.members %} {% if member.promoter == true %}
 
 	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:10px; margin-right:10px; float:left; height: 100px; width:100px !important">
 
 	<h1>{{ member.name }}</h1>
 
-	<h3>{{ member.role }}</h3>
+	<h4>{{ member.role }}</h4>
 
 
 	{% if member.twitter %}
@@ -41,14 +41,14 @@ header-img: "img/home-bg.jpg"
 </br>
 
 <hr>
-<h3>Collaborators</h3>
+<h4>Collaborators</h4>
 {% for member in site.data.members %} {% if member.collaborator == true %}
 
 	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; height: 100px; width:100px !important">
 
 	<h1>{{ member.name }}</h1>
 
-	<h3>{{ member.role }}</h3>
+	<h4>{{ member.role }}</h4>
 
 	{% if member.github %}
 	<span class="social-share-googleplus"><a href="https://github.com/{{ member.github }}" title="Github"><i class="fa fa-github"></i>&nbsp;Github</a></span>
