@@ -80,6 +80,7 @@ function playSound(volume){
 // properties (inherent) to get the desired URL data. Some String
 // operations are used (to normalize results across browsers).
 // @see http://james.padolsey.com/javascript/parsing-urls-with-the-dom/
+
 function parseURL(url) {
     var a =  document.createElement('a');
     a.href = url;
@@ -91,8 +92,9 @@ function parseURL(url) {
         query: a.search,
         params: (function(){
             var ret = {},
-                seg = a.search.replace(/^?/,'').split('&'),
+                seg = a.search.replace('?','').split('&'),
                 len = seg.length, i = 0, s;
+
             for (;i<len;i++) {
                 if (!seg[i]) { continue; }
                 s = seg[i].split('=');
@@ -103,7 +105,6 @@ function parseURL(url) {
         file: (a.pathname.match(/([^/?#]+)$/i) || [,''])[1],
         hash: a.hash.replace('#',''),
         path: a.pathname.replace(/^([^/])/,'/$1'),
-        //relative: (a.href.match(/tps?:/[^/]+(.+)/) || [,''])[1],
         segments: a.pathname.replace(/^/,'').split('/')
     };
 }

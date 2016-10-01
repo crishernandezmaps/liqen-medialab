@@ -10,4 +10,6 @@ We choose those three cities as our starting point to show the power of our tool
 
 Our results will be presented on a data visualization showing a comparision between a quantitative measure (sensors) and a qualitative perspective (volunteers). Also, as an inmersive experience we included the level of sound for each city, to deliver a more emotional relationship with the data.
 
-liQen
+---
+
+This project is lead by [Common Action Forum](http://commonactionforum.net/), an international non-profit foundation established in Madrid, Spain, in 2015 to build independent platforms of cooperation, research, innovation and advisory, empowering global citizens to address socio-political issues and economic inequalities.

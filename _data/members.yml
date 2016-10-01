@@ -5,54 +5,54 @@
   img: https://pbs.twimg.com/profile_images/772080416677326848/yV0eUZko_400x400.jpg
   github: crishernandezmaps
   gplus:
-  bio:
+  bio: Geographer expert in spatial data science and visualization.
   url: http://blog.crishernandez.co
   promoter: true
 
 - name: Maribel Mateos
   role: Project Coordination
-  img: img/maribel.jpg
+  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/maribel.jpg?raw=true
   github: #
   gplus:
-  bio:
+  bio: Journalist specialized in Multimedia Communication, Branding and Social Media.
   url: #
   promoter: true
 
 - name: Rafael Heiber
   role:
-  img: /img/rafael.jpg
+  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/rafael.jpg?raw=true
   github:
   gplus:
-  bio:
+  bio: Geographer and Sociologist. His fields of expertise are spatial organization, geopolitics and social-technical analysis.
   url: #
   promoter: true
 
 - name: Patricio Cabello
   role:
-  img: /img/pato.jpg
+  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/pato.jpg?raw=true
   github:
   gplus:
-  bio:
+  bio: Patricio Cabello. Social Psychologist. Researcher on youth, social movements and ICTs.
   url: #
   promoter: true
 
 - name: Jaime González-Capitel
   role:
-  img: /img/jaime.jpg
+  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/jaime.jpg?raw=true
   github:
   gplus:
-  bio:
+  bio: Fulbright Alumni at Georgetown University. Transparency expert, knowledge manager and  coordinator of Observatorio de Think Tanks, has collaborated in Open Data projects like the OpenGovGuide.com.
   url: #
   promoter: true
 
-- name: Miguel
-  role:
-  img: /img/.jpg
-  github:
-  gplus:
-  bio:
-  url: #
-  promoter: true
+# - name: Miguel
+#   role:
+#   img: /img/.jpg
+#   github:
+#   gplus:
+#   bio:
+#   url: #
+#   promoter: true
 
 - name: Diego Andrés Ramírez Aragón
   role: Visualization and System Integration
