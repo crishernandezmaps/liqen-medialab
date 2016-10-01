@@ -17,6 +17,7 @@ $(document).ready(function() {
   var map;
   var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+    'Sensors Data © <a href="http://smartcitizen.me">SmartCitizen</a>, ' + 
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
 //    mbUrl = 'https://api.mapbox.com/styles/v1/crishernandezco/citr5vkrr00052hln1i64nmn8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
@@ -158,7 +159,14 @@ $(document).ready(function() {
     loadNoice(device);
   });
 
-  $.getJSON('../estaciones/data/devices.json', function(data) {
+
+  //$.getJSON('https://api.smartcitizen.me/v0/devices/world_map', function(data) {
+  //data = resp.filter(function(d) {
+  //      return d.system_tags.indexOf('outdoor') >= 0 &&
+  //        (countries.indexOf(d.country_code) >= 0 || cities.indexOf(d.city) >= 0);
+  //    });
+
+  $.getJSON('../estaciones/data/devices-world.json', function(data) {
     map = L.map('map', {
       center: [0.73, -10.99],
       zoom: 2,
