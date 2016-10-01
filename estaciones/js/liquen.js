@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  var data;
+  var devicesData;
   var devices = L.markerClusterGroup();
   var countries = [];
   var cities = ['Madrid', 'London', 'Santiago'];
   var machineSensor = nv.models.multiChart(),
-    humanSensor = nv.models.multiChart();
+      humanSensor = nv.models.multiChart();
   var machineData
   var humanData;
 
@@ -27,7 +27,7 @@ $(document).ready(function() {
         };
       })
 
-      data = new Array();
+      var data = new Array();
       var serie = {
         key: "Noise",
         values: points,
@@ -46,16 +46,21 @@ $(document).ready(function() {
       console.log("Vol:" + volume);
       playSound(volume)
     });
+
     // Load Human data
-    $.getJSON('https://liqen-pre.herokuapp.com/metrics?device='+device+'&start=' + start + "&end=" + end, function(resp) {
-      data = resp || [{x:0,y:0}];
+    url = 'https://liqen-pre.herokuapp.com/metrics?device='+device+'&start=' + start + "&end=" + end;
+    $.getJSON(url).done(function(resp) {
+      points = resp.map(function(d){
+        return {x:d.timestamp,y:d.decibels}
+      });
+
       var serie = {
         key: "Noise",
-        values: data,
+        values: points,
         type: 'bar',
         yAxis: 1
       }
-
+      var data = new Array();
       data.push(serie);
       data.push(getLimits(start, end, "EU"));
       data.push(getLimits(start, end, "OMS"));
@@ -115,8 +120,10 @@ $(document).ready(function() {
       popup = popup.replace('{device}', d.id);
 
       L.marker([d.latitude, d.longitude]).bindPopup(popup).addTo(devices);
+      devicesData = data;
     });
   })
-
-  loadNoice(3675);
+  var urlParams = parseURL(location.href);
+  console.log(urlParams);
+  loadNoice(170);
 });
