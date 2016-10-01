@@ -38,10 +38,7 @@ header-img: "img/dashboard-bg.jpg"
         <audio id="audioElement" src="{{ "/sound/audio/sound.ogg" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></audio>
         <div class="graph"></div>
         <div class="controls">
-            <ul>
-                <li><button onclick="document.getElementById('audioElement').play()"><i class="fa fa-play"></i></button>
-                <li><button onclick="document.getElementById('audioElement').pause()"><i class="fa fa-pause"></i></button></li>
-            </ul>
+          <a class="play-pause btn btn-default btn-sm" href="#"><i class="play fa fa-volume-up fa-lg"></i></a>
         </div>
     </div>
   </div>
@@ -53,6 +50,7 @@ header-img: "img/dashboard-bg.jpg"
 <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
 
 <script src="{{ "/js/leaflet-markercluster/leaflet.markercluster.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
+<script src="{{ "/js/jquery.ajaxQueue.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
 <script src="{{ "/estaciones/js/liquen-graph.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
 <script src="{{ "/estaciones/js/liquen.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
 

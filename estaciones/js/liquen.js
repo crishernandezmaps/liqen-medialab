@@ -4,6 +4,8 @@ $(document).ready(function() {
   var devices = L.markerClusterGroup();
   var countries = [];
   var cities = ['Madrid', 'London', 'Santiago'];
+  var devicesURL = 'https://api.smartcitizen.me/v0/devices/{device}/readings?all_intervals=true&from={start}&rollup=6h&sensor_id=7&to={end}';
+  var humansURL = 'https://liqen-pre.herokuapp.com/metrics?device={device}&start={start}&end={end}';
 
   //Graphs properties
   var machineSensor = nv.models.multiChart(),
@@ -62,63 +64,94 @@ $(document).ready(function() {
       humanData = d3.select('#human-sensor svg');
       var volume = 30;
 
-      $.getJSON('https://api.smartcitizen.me/v0/devices/' + device + '/readings?all_intervals=true&from=' + start + '&rollup=6h&sensor_id=7&to=' + end, function(resp) {
-        var points = resp.readings.map(function(d) {
-          ts = new Date(d[0]);
-          value = (d[1] != null) ? d[1] : 0;
-          volume = Math.max(volume,value);
-          return {
-            x: ts.getTime(),
-            y: value
-          };
-        })
+      var machineUrl = devicesURL.replace('{device}',device);
+      machineUrl = machineUrl.replace('{start}',start);
+      machineUrl = machineUrl.replace('{end}',end);
 
-        var data = new Array();
-        var serie = {
-          key: "Noise",
-          values: points,
-          type: 'bar',
-          yAxis: 1
+      var humanUrl = humansURL.replace('{device}',device);
+      humanUrl = humanUrl.replace('{start}',start);
+      humanUrl = humanUrl.replace('{end}',end);
+
+      var queue = $.ajaxq('display',{
+        url:machineUrl,
+        dataType: 'json',
+        success: function(resp){
+          var points = resp.readings.map(function(d) {
+            ts = new Date(d[0]);
+            value = (d[1] != null) ? d[1] : 0;
+            volume = Math.max(volume,value);
+            return {
+              x: ts.getTime(),
+              y: value
+            };
+          })
+
+          var data = new Array();
+          var serie = {
+            key: "Noise",
+            values: points,
+            type: 'bar',
+            yAxis: 1
+          }
+          data.push(serie);
+          data.push(getLimits(start, end, "EU"));
+          data.push(getLimits(start, end, "OMS"));
+
+          machineData
+            .datum(data)
+            .transition().duration(1200)
+            .call(machineSensor);
         }
-        data.push(serie);
-        data.push(getLimits(start, end, "EU"));
-        data.push(getLimits(start, end, "OMS"));
+      });
 
-        machineData
-          .datum(data)
-          .transition().duration(1200)
-          .call(machineSensor);
+      $.ajaxq('display',{
+        url:humanUrl,
+        dataType:'json',
+        success: function(resp){
+          points = resp.map(function(d){
+            volume = Math.max(volume,d.decibels);
+            return {x:d.timestamp,y:d.decibels}
+          });
 
+          var serie = {
+            key: "Noise",
+            values: points,
+            type: 'bar',
+            yAxis: 1
+          }
+          var data = new Array();
+          data.push(serie);
+          data.push(getLimits(start, end, "EU"));
+          data.push(getLimits(start, end, "OMS"));
+
+          humanData
+            .datum(data)
+            .transition().duration(1200)
+            .call(humanSensor);
+        }
+      });
+
+      queue.success(function(){
         console.log("Vol:" + volume);
         playSound(volume)
       });
-
-      // Load Human data
-      url = 'https://liqen-pre.herokuapp.com/metrics?device='+device+'&start=' + start + "&end=" + end;
-      $.getJSON(url).done(function(resp) {
-        points = resp.map(function(d){
-          return {x:d.timestamp,y:d.decibels}
-        });
-
-        var serie = {
-          key: "Noise",
-          values: points,
-          type: 'bar',
-          yAxis: 1
-        }
-        var data = new Array();
-        data.push(serie);
-        data.push(getLimits(start, end, "EU"));
-        data.push(getLimits(start, end, "OMS"));
-
-        humanData
-          .datum(data)
-          .transition().duration(1200)
-          .call(humanSensor);
-      });
-
     }
   }
+
+  $('.play-pause').on('click',function(e){
+      e.preventDefault();
+      player = document.getElementById('audioElement');
+      if($('.play-pause i').hasClass('fa-volume-up')){
+        player.pause();
+        $('.play-pause i').removeClass('fa-volume-up');
+        $('.play-pause i').addClass('fa-volume-off');
+      }
+      else{
+        player.play();
+        $('.play-pause i').removeClass('fa-volume-off');
+        $('.play-pause i').addClass('fa-volume-up');
+      }
+  });
 
   $(document).on('click', '.details', function(e) {
     var device = $(e.target).data('device');
