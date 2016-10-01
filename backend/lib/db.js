@@ -52,6 +52,9 @@ module.exports.read = function (options) {
         return
       }
       // Note that the insert method can take either an array or a dict.
+      console.log('============ DATE ============')
+      console.log(sensor, start, end)
+      console.log('============ DATE ============')
       
       // Select "table" (collection)
       const metrics = db.collection('metrics')
