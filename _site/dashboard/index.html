@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Identifying Urban Environmental Conflicts">
+	<meta property="og:title" content="liQen project" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="///dashboard/" />
+<meta property="og:image" content="//img/home-bg.jpg">
+
+	
+
+	<link rel='shortcut icon' type='image/png' href='/favicon.png' />
+
+    <title>liQen project</title>
+
+    <link rel="canonical" href="/dashboard/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+	<!-- Adjust Colors -->
+    <link rel="stylesheet" href="/css/colorscheme.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom styles CSS -->
+    <link rel="stylesheet" href="/css/index.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="/css/leaflet-markercluster/MarkerCluster.css" />
+    <link rel="stylesheet" href="/css/leaflet-markercluster/MarkerCluster.Default.css" />
+
+    <!-- NVD3  -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.css" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<!-- Math Jax -->
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+	src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		TeX: { equationNumbers: { autoNumber: "AMS" } }
+	});
+	</script>
+
+	<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.13/d3.min.js" type="text/javascript"></script>-->
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<!--<script src="/js/clean-blog.min.js "></script>-->
+
+	
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">liQen project</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+				
+                
+                <li>
+                    <a href="/form/">Human sensor tool</a>
+                </li>
+                
+                <li>
+                    <a href="/"></a>
+                </li>
+                
+                <li>
+                    <a href="/members/">Members</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Page Header -->
+
+<header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading" style="padding: 75px 0">
+					
+                    <h1>liQen project</h1>
+                    <hr class="small">
+                    <span class="subheading">Identifying Urban Environmental Conflicts</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12 col-md-12 ">
+			<div class="row">
+  <div class="col-lg-7 col-md-7">
+    <div id="map"></div>
+  </div>
+  <div class="col-lg-5 col-md-5">
+    <div id="graphs">
+        <div>
+            <ul class="vis-filter">
+                <li class="noise"><i class="fa fa-circle"></i>Noise</li>
+                <li class="eu"><i class="fa fa-circle"></i>EU directive</li>
+                <li class="oms"><i class="fa fa-circle"></i>OMS</li>
+            </ul>
+        </div>
+        <div id="machine-sensor" class='sensor'>
+            <i class="fa fa-android fa-3x"></i>
+            <svg></svg>
+        </div>
+        <div id="human-sensor" class='sensor'>
+            <i class="fa fa-user fa-3x"></i>
+            <svg></svg>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="cols-lg-12 col-md-12">
+    <div id="player">
+        <audio id="audioElement" src="/sound/audio/sound.ogg"></audio>
+        <div class="graph"></div>
+        <div class="controls">
+            <ul>
+                <li><button onclick="document.getElementById('audioElement').play()"><i class="fa fa-play"></i></button>
+                <li><button onclick="document.getElementById('audioElement').pause()"><i class="fa fa-pause"></i></button></li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+
+<script src="/js/leaflet-markercluster/leaflet.markercluster.js"></script>
+<script src="/estaciones/js/liquen-graph.js"></script>
+<script src="/estaciones/js/liquen.js"></script>
+
+<script src="/sound/sound.js"></script>
+
+		</div>
+	</div>
+</div>
+
+<hr>
+
+	
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+									
+                </ul>
+                <p class="copyright text-muted"> Copyright © <a href="http://ahmetcecen.github.io/" target="_blank">Ahmet Cecen</a>,  <a href="http://mined.gatech.edu/" target="_blank">MINED@GaTech</a> and <a href="https://github.com/projectpages" target="_blank">Project Pages</a> 2016. </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</body>
+
+</html>

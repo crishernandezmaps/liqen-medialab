@@ -1,40 +1,58 @@
 # Members
 
-- name: Cristian
-  role: Data Scientist / Materials Informatics
-  img: https://avatars1.githubusercontent.com/u/7231251?v=3&s=460
-  github: ahmetcecen
-  gplus: https://plus.google.com/+AhmetCecen-GPlus
+- name: Cristian Hernández
+  role: Data Analysis / Data Visualization
+  img: https://pbs.twimg.com/profile_images/772080416677326848/yV0eUZko_400x400.jpg
+  github: crishernandezmaps
+  gplus:
   bio:
-  url: http://ahmetcecen.github.io/
-  visible: true
+  url: http://blog.crishernandez.co
+  promoter: true
 
-- name: Maribel
-  role: Data Scientist / Materials Informatics
-  img: https://avatars1.githubusercontent.com/u/7231251?v=3&s=460
-  github: ahmetcecen
-  gplus: https://plus.google.com/+AhmetCecen-GPlus
+- name: Maribel Mateos
+  role: Project Coordination
+  img: /img/maribel.jpg
+  github: #
+  gplus:
   bio:
-  url: http://ahmetcecen.github.io/
-  visible: true
+  url: #
+  promoter: true
 
-- name: Cármen
-  role: Data Scientist / Materials Informatics
-  img: https://avatars1.githubusercontent.com/u/7231251?v=3&s=460
-  github: ahmetcecen
-  gplus: https://plus.google.com/+AhmetCecen-GPlus
+- name: Rafael Heiber
+  role:
+  img: /img/rafael.jpg
+  github:
+  gplus:
   bio:
-  url: http://ahmetcecen.github.io/
-  visible: true
+  url: #
+  promoter: true
 
-
-- name: Carlos Saito
-  role: Data Scientist / Materials Informatics
-  img: https://pbs.twimg.com/profile_images/3364739062/5fb57349882aac3d40cb7e24de0c34a5_reasonably_small.jpeg
-  github: davidbrough1
+- name: Patricio Cabello
+  role:
+  img: /img/pato.jpg
+  github:
+  gplus:
   bio:
-  url: http://davidbrough.net
-  visible: true
+  url: #
+  promoter: true
+
+- name: Jaime González-Capitel
+  role:
+  img: /img/jaime.jpg
+  github:
+  gplus:
+  bio:
+  url: #
+  promoter: true
+
+- name: Miguel
+  role:
+  img: /img/.jpg
+  github:
+  gplus:
+  bio:
+  url: #
+  promoter: true
 
 - name: Diego Andrés Ramírez Aragón
   role: Visualization and System Integration
@@ -42,4 +60,21 @@
   url: https://lowfill.org/
   github: lowfill
   bio:
-  visible: true
+  collaborator: true
+
+- name: Carlos Saito
+  role: Data Scientist / Materials Informatics
+  img: https://pbs.twimg.com/profile_images/3364739062/5fb57349882aac3d40cb7e24de0c34a5_reasonably_small.jpeg
+  github: davidbrough1
+  bio:
+  url: http://davidbrough.net
+  collaborator: true
+
+- name: Cármen
+  role: Environmental Expert
+  img: /img/cris.png
+  github:
+  gplus:
+  bio:
+  url: #
+  collaborator: true
