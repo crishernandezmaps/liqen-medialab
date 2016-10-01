@@ -16,9 +16,10 @@ $(document).ready(function() {
   var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
+//    mbUrl = 'https://api.tiles.mapbox.com/v1/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
+    mbUrl = 'https://api.mapbox.com/styles/v1/crishernandezco/citr5vkrr00052hln1i64nmn8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
   var emerald = L.tileLayer(mbUrl, {
-      id: 'mapbox.emerald',
+      id: 'mapbox.liqen',
       attribution: mbAttr
     }),
     outdoors = L.tileLayer(mbUrl, {
@@ -31,9 +32,9 @@ $(document).ready(function() {
     });
 
   var baseLayers = {
-    "Emerald":emerald,
-    "Outdoors": outdoors,
-    "Pirates":pirates
+    "Liquen":emerald,
+    //"Outdoors": outdoors,
+    //"Pirates":pirates
   };
 
   var overlays = {
