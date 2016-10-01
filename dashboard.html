@@ -1,5 +1,7 @@
 ---
-layout: home
+layout: dashboard
+title: "Dashboard"
+header-img: "img/dashboard-bg.jpg"
 ---
 <div class="row">
   <div class="col-lg-7 col-md-7">
@@ -15,11 +17,16 @@ layout: home
             </ul>
         </div>
         <div id="machine-sensor" class='sensor'>
-            <i class="fa fa-android fa-3x"></i>
-            <svg></svg>
+          <div class="icon">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-square fa-stack-2x"></i>
+              <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+            </span>
+          </div>
+          <svg></svg>
         </div>
         <div id="human-sensor" class='sensor'>
-            <i class="fa fa-user fa-3x"></i>
+            <div class="icon"><i class="fa fa-user fa-3x"></i></div>
             <svg></svg>
         </div>
     </div>

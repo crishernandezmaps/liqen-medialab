@@ -13,15 +13,6 @@ function LiQuenGraph(selector,chart){
     chart.options(chartOptions);
     chart.yDomain1(defaultDomain);
     chart.yDomain2(defaultDomain);
-//    console.log(chart.bars1.color());
-//TODO Change bars colors independently
-    chart.bars2.barColor(function(d,i){
-      var colors = d3.scale.linear().domain(defaultDomain).range(["green","red"]);
-      console.log(colors(d.y));
-      return "green";
-      return colors(d.y);
-    })
-//    console.log(chart.bars1.color());
 
     chart.xAxis
         .axisLabel("Time (s)")
@@ -83,4 +74,37 @@ function playSound(volume){
   var x = document.getElementById('audioElement');
   x.volume = Math.round(volume/100);
   x.play();
+}
+
+// This function creates a new anchor element and uses location
+// properties (inherent) to get the desired URL data. Some String
+// operations are used (to normalize results across browsers).
+// @see http://james.padolsey.com/javascript/parsing-urls-with-the-dom/
+
+function parseURL(url) {
+    var a =  document.createElement('a');
+    a.href = url;
+    return {
+        source: url,
+        protocol: a.protocol.replace(':',''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: (function(){
+            var ret = {},
+                seg = a.search.replace('?','').split('&'),
+                len = seg.length, i = 0, s;
+
+            for (;i<len;i++) {
+                if (!seg[i]) { continue; }
+                s = seg[i].split('=');
+                ret[s[0]] = s[1];
+            }
+            return ret;
+        })(),
+        file: (a.pathname.match(/([^/?#]+)$/i) || [,''])[1],
+        hash: a.hash.replace('#',''),
+        path: a.pathname.replace(/^([^/])/,'/$1'),
+        segments: a.pathname.replace(/^/,'').split('/')
+    };
 }
