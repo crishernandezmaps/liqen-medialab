@@ -65,12 +65,12 @@ $(document).ready(function() {
       var volume = 30;
 
       var machineUrl = devicesURL.replace('{device}',device);
-      machineUrl = machineUrl.replace('{start}',start);
-      machineUrl = machineUrl.replace('{end}',end);
+      machineUrl = machineUrl.replace('{start}',encodeURIComponent(start));
+      machineUrl = machineUrl.replace('{end}',encodeURIComponent(end));
 
       var humanUrl = humansURL.replace('{device}',device);
-      humanUrl = humanUrl.replace('{start}',start);
-      humanUrl = humanUrl.replace('{end}',end);
+      humanUrl = humanUrl.replace('{start}',encodeURIComponent(start));
+      humanUrl = humanUrl.replace('{end}',encodeURIComponent(end));
 
       var queue = $.ajaxq('display',{
         url:machineUrl,
