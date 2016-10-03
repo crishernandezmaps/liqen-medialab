@@ -10,14 +10,15 @@ $(document).ready(function() {
   audioSrc.connect(audioCtx.destination);
 
   //var db data from machines and humans:
-  var lec = 30;
+  var max = 100;
+  var min = 0;
+  var eu = 55;
+  var lec = 10;
   var x = document.getElementById('audioElement');
   x.loop = true;
   x.volume = lec / 100;
 
-
-  //var colors = d3.scale.linear().domain([0,lec]).range(['red','yellow']);
-  var colors = d3.scale.linear().domain([0, lec]).range(['red', 'yellow']);
+  var colors = d3.scale.linear().domain([0, lec]).range(['red', 'blue']);
 
   var frequencyData = new Uint8Array(analyser.frequencyBinCount);
   var frequencyData = new Uint8Array(200);
@@ -25,7 +26,7 @@ $(document).ready(function() {
   var svg = d3.select('#player > .graph').append('svg');
   var svgHeight = $('#player').height();
   var svgWidth = $('#player > .graph').width();
-  var barPadding = '1';
+  var barPadding = '0.5';
 
   // Create our initial D3 chart.
   svg.selectAll('rect')
@@ -44,7 +45,7 @@ $(document).ready(function() {
     // Copy frequency data to frequencyData array.
     analyser.getByteFrequencyData(frequencyData);
     var max = Math.max.apply(Math, frequencyData);
-    var yScale = d3.scale.linear().domain([0, frequencyData.length]).range([0, svgHeight])
+    var yScale = d3.scale.linear().domain([0, frequencyData.length]).range([-1, svgHeight])
 
     // Update d3 chart with new data.
     svg.selectAll('rect')
