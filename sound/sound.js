@@ -45,18 +45,20 @@ $(document).ready(function() {
     // Copy frequency data to frequencyData array.
     analyser.getByteFrequencyData(frequencyData);
     var max = Math.max.apply(Math, frequencyData);
-    var yScale = d3.scale.linear().domain([0, frequencyData.length]).range([-1, svgHeight])
+    if(max>0){
+      var yScale = d3.scale.linear().domain([0, frequencyData.length]).range([0, svgHeight])
 
-    // Update d3 chart with new data.
-    svg.selectAll('rect')
-      .data(frequencyData)
-      .attr('y', function(d) {
-        return svgHeight - yScale(d);
-      })
-      .attr('height', function(d) {
-        return yScale(d * x.volume);
-      })
-      .attr('fill', colors)
+      // Update d3 chart with new data.
+      svg.selectAll('rect')
+        .data(frequencyData)
+        .attr('y', function(d) {
+          return svgHeight - yScale(d);
+        })
+        .attr('height', function(d) {
+          return yScale(d * x.volume);
+        })
+        .attr('fill', colors)
+    }
   }
 
   // Run the loop

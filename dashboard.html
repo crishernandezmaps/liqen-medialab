@@ -8,7 +8,7 @@ header-img: "img/dashboard-bg.jpg"
     <div id="map-container">
       <div id="map"></div>
       <div id="player">
-        <audio id="audioElement" src="{{ "/sound/new-sounds/max-level.ogg" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></audio>
+        <audio id="audioElement" src="{{ "/sound/new-sounds/obras-suave-clip.mp3" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></audio>
         <div class="graph"></div>
         <div class="controls">
           <a class="play-pause btn btn-link btn-sm" href="#"><i class="play fa fa-volume-up fa-lg"></i></a>
@@ -19,7 +19,7 @@ header-img: "img/dashboard-bg.jpg"
   <div class="col-lg-3 col-md-5">
     <div class="row">
       <div>
-        
+
       </div>
     </div>
     <div class="row">
@@ -29,14 +29,20 @@ header-img: "img/dashboard-bg.jpg"
       </div>
       <div class='col-xs-6 col-md-12'>
         <h5>Human sensor (dB)</h5>
-        <div id="human-sensor" class="sensor"><svg></svg></div>
+        <div id="human-sensor" class="sensor">
+          <svg></svg>
+          <div class="ask-help">
+            <b>We don't have a human sensor around this point</b>
+            <p><a href="{{ "/form" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">Do you want to collaborate?</a></p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12">
         <ul class="vis-filter">
           <li class="eu"><i class="fa fa-circle"></i>EU directive</li>
-          <li class="oms"><i class="fa fa-circle"></i>OMS</li>
+          <li class="oms"><i class="fa fa-circle"></i>WHO directive</li>
         </ul>
       </div>
     </div>

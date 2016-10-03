@@ -93,3 +93,15 @@ ul{
 }
 #player .controls li{
 }
+
+.ask-help{
+  background:#3371b7;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  display:none;
+}
+.ask-help a{
+  color: #fdf;
+  text-decoration: none;
+}

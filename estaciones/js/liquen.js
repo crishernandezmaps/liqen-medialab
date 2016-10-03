@@ -112,32 +112,38 @@ $(document).ready(function() {
         url:humanUrl,
         dataType:'json',
         success: function(resp){
-          points = resp.map(function(d){
-            volume = Math.max(volume,d.decibels);
-            return {x:d.timestamp,y:d.decibels}
-          });
+          console.log(resp)
+          if(resp.length>0){
+            var points = resp.map(function(d){
+              volume = Math.max(volume,d.decibels);
+              return {x:d.timestamp,y:d.decibels}
+            });
 
-          var serie = {
-            key: "Noise",
-            values: points,
-            type: 'bar',
-            yAxis: 1
+            var serie = {
+              key: "Noise",
+              values: points,
+              type: 'bar',
+              yAxis: 1
+            }
+            var data = new Array();
+            data.push(serie);
+            data.push(getLimits(start, end, "EU"));
+            data.push(getLimits(start, end, "OMS"));
+            humanData.style('display','block');
+            humanData
+              .datum(data)
+              .transition().duration(1200)
+              .call(humanSensor);
           }
-          var data = new Array();
-          data.push(serie);
-          data.push(getLimits(start, end, "EU"));
-          data.push(getLimits(start, end, "OMS"));
-
-          humanData
-            .datum(data)
-            .transition().duration(1200)
-            .call(humanSensor);
+          else {
+            humanData.style('display','none');
+            d3.select('.ask-help').style('display','block');
+          }
+        },
+        complete: function(){
+          console.log("Vol: "+ volume);
+          playSound(volume)
         }
-      });
-
-      queue.success(function(){
-        console.log("Vol:" + volume);
-        playSound(volume)
       });
     }
   }
