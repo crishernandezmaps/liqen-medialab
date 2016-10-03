@@ -17,19 +17,28 @@ header-img: "img/dashboard-bg.jpg"
     </div>
   </div>
   <div class="col-lg-3 col-md-5">
-    <div id="graphs">
-        <div>
-            <ul class="vis-filter">
-                <li class="eu"><i class="fa fa-circle"></i>EU directive</li>
-                <li class="oms"><i class="fa fa-circle"></i>OMS</li>
-            </ul>
-        </div>
-        <div id="machine-sensor" class='sensor'>
-          <svg></svg>
-        </div>
-        <div id="human-sensor" class='sensor'>
-          <svg></svg>
-        </div>
+    <div class="row">
+      <div>
+        
+      </div>
+    </div>
+    <div class="row">
+      <div class='col-xs-6 col-md-12 '>
+        <h5>Machine sensor (dB)</h5>
+        <div id="machine-sensor" class="sensor"><svg></svg></div>
+      </div>
+      <div class='col-xs-6 col-md-12'>
+        <h5>Human sensor (dB)</h5>
+        <div id="human-sensor" class="sensor"><svg></svg></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="vis-filter">
+          <li class="eu"><i class="fa fa-circle"></i>EU directive</li>
+          <li class="oms"><i class="fa fa-circle"></i>OMS</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
