@@ -17,7 +17,7 @@ $(document).ready(function() {
   var map;
   var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
     '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Sensors Data © <a href="http://smartcitizen.me">SmartCitizen</a>, ' + 
+    'Sensors Data © <a href="http://smartcitizen.me">SmartCitizen</a>, ' +
     'Imagery © <a href="http://mapbox.com">Mapbox</a>',
     mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
 //    mbUrl = 'https://api.mapbox.com/styles/v1/crishernandezco/citr5vkrr00052hln1i64nmn8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
@@ -47,6 +47,9 @@ $(document).ready(function() {
   var overlays = {
     "Devices": devices
   };
+
+// Insert customize marker
+
 
 
   function getDeviceInfo(device){
