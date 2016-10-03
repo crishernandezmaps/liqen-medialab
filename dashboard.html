@@ -4,28 +4,31 @@ title: "Dashboard"
 header-img: "img/dashboard-bg.jpg"
 ---
 <div class="row">
-  <div class="col-lg-7 col-md-7">
-    <div id="map"></div>
+  <div class="col-lg-9 col-md-7">
+    <div id="map-container">
+      <div id="map"></div>
+      <div id="player">
+        <audio id="audioElement" src="{{ "/sound/audio/sound.ogg" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></audio>
+        <div class="graph"></div>
+        <div class="controls">
+          <a class="play-pause btn btn-link btn-sm" href="#"><i class="play fa fa-volume-up fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-5 col-md-5">
+  <div class="col-lg-3 col-md-5">
     <div id="graphs">
         <div>
             <ul class="vis-filter">
-                <li class="noise"><i class="fa fa-circle"></i>Noise</li>
                 <li class="eu"><i class="fa fa-circle"></i>EU directive</li>
                 <li class="oms"><i class="fa fa-circle"></i>OMS</li>
             </ul>
         </div>
         <div id="machine-sensor" class='sensor'>
-          <div class="icon">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-square fa-stack-2x"></i>
-              <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
-            </span>
-          </div>
           <svg></svg>
         </div>
         <div id="human-sensor" class='sensor'>
+<<<<<<< HEAD
             <div class="icon"><i class="fa fa-user fa-3x"></i></div>
             <svg></svg>
         </div>
@@ -40,6 +43,9 @@ header-img: "img/dashboard-bg.jpg"
         <div class="graph"></div>
         <div class="controls">
           <a class="play-pause btn btn-default btn-sm" href="#"><i class="play fa fa-volume-up fa-lg"></i></a>
+=======
+          <svg></svg>
+>>>>>>> 214e072c4e8fed0207029ef48cc7f5232bf7746e
         </div>
     </div>
   </div>
