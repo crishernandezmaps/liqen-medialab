@@ -54,7 +54,7 @@ $(document).ready(function() {
         return svgHeight - yScale(d);
       })
       .attr('height', function(d) {
-        return yScale(d * x.volume);
+        return Math.max(yScale(d * x.volume), 1);
       })
       .attr('fill', colors)
   }

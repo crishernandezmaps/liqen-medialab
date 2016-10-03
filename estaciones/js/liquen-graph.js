@@ -72,7 +72,8 @@ function getLimits(start,end,serie){
 
 function playSound(volume){
   var x = document.getElementById('audioElement');
-  x.volume = Math.round(volume/100);
+  console.log("v", volume)
+  x.volume = Math.max(Math.min(1, (volume/100)), 0);
   x.play();
 }
 
