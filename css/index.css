@@ -78,7 +78,7 @@ ul{
 }
 #player .graph{
   width: 100%;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 #player .graph svg{
   width: 100%;
