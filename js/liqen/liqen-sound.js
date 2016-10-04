@@ -1,8 +1,25 @@
 function LiqenSound(element){
 
-  this.audioElement = document.getElementById(this.element);
+  this.sources = [
+    'obras-suave-clip.mp3',
+    'stadium-mild-clip.mp3',
+    'street-sounds-soft-clip.mp3',
+    'sound.ogg'
+    //'stadium-noise-clip.mp3',
+    //'ruido-obras-clip.mp3',
+    //'traffic-noise-clip.mp3'
+  ];
+
+  this.audioElement = document.getElementById(element);
 
   this.render = function(){
+    // Choosing a random sound from the sources
+    var source = this.sources[Math.floor(Math.random() * (this.sources.length))];
+    sourceUrl = this.audioElement.src.substr(0,this.audioElement.src.lastIndexOf('/'));
+    sourceUrl = sourceUrl+"/"+source;
+    this.audioElement.src=sourceUrl;
+
+    // Context configuration
     var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
     var audioSrc = audioCtx.createMediaElementSource(audioElement);
     var analyser = audioCtx.createAnalyser();
