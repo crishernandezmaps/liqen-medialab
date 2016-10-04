@@ -4,7 +4,7 @@ $(document).ready(function() {
   var devices = L.markerClusterGroup();
   var countries = [];
   var cities = ['Madrid', 'London', 'Santiago'];
-  var devicesURL = 'https://api.smartcitizen.me/v0/devices/{device}/readings?all_intervals=true&from={start}&rollup=6h&sensor_id=7&to={end}';
+  var devicesURL = 'https://api.smartcitizen.me/v0/devices/{device}/';
   var humansURL = 'https://liqen-pre.herokuapp.com/metrics?device={device}&start={start}&end={end}';
 
   //Graphs properties
@@ -90,11 +90,10 @@ $(document).ready(function() {
         url:machineUrl,
         dataType: 'json',
         success: function(resp){
-          var points = resp.readings.map(function(d) {
-            ts = new Date(d[0]);
-            value = (d[1] != null) ? d[1] : 0;
-            volume = Math.max(volume,value);
-            volumes.machine = volume
+          var points = resp.data.sensors.map(function(d) {
+            if (d.id === 7) {
+              volumes.machine = Math.max(volumes.machine, d.value);
+            }
           })
         }
       });
