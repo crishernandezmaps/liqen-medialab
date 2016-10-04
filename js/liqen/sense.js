@@ -29,7 +29,6 @@ $(document).ready(function() {
 
 
   function getDeviceInfo(device){
-    $('#device-' + device).addClass('city-list-selected')
     deviceInfo = devicesData.filter(function (d){return d.id==device});
     return (deviceInfo.length) ? deviceInfo[0] : null;
   }
@@ -45,7 +44,6 @@ $(document).ready(function() {
       end = moment().format()
       machineData = d3.select('#machine-sensor svg');
       humanData = d3.select('#human-sensor svg');
-      var volume = 30;
 
       var machineUrl = devicesURL.replace('{device}',device);
       machineUrl = machineUrl.replace('{start}',encodeURIComponent(start));
@@ -59,37 +57,46 @@ $(document).ready(function() {
         url:machineUrl,
         dataType: 'json',
         success: function(resp){
-          var points = resp.data.sensors.map(function(d) {
+          var volume = 0;
+          resp.data.sensors.map(function(d) {
             if (d.id === 7) {
-              volumes.machine = Math.max(volumes.machine, d.value);
+              volume = Math.max(volume, d.value);
             }
           })
+          volumes.machine = volume;
         }
       });
 
-      var volume = 0
 
       $.ajaxq('display',{
         url:humanUrl,
         dataType:'json',
         success: function(resp){
-          points = resp.map(function(d){
+          var volume = 0
+          resp.map(function(d){
             volume = Math.max(volume,d.decibels);
-            volumes.human = volume
-            return {x:d.timestamp,y:d.decibels}
           });
+          volumes.human = volume
         },
         complete: function() {
-          console.log("Vols:", volumes.who, volumes.human, volumes.machine );
-          sound.playSound(volumes.who)
+          selectedNoise = $('[name=sound]:checked').val()
+          console.log("Vols:",selectedNoise,"who:", volumes.who,"human:", volumes.human,"machine:", volumes.machine);
+          sound.playSound(volumes[selectedNoise])
         }
-      });
-
-      queue.success(function(){
-
       });
     }
   }
+
+  $('.city-filter').on('click',function(e){
+      e.preventDefault();
+
+      device = $(e.target).data('device-id');
+      loadNoice(device);
+
+      $('.city-filter').removeClass('city-list-selected');
+      $(e.target).addClass('city-list-selected');
+
+  });
 
   $('[name=sound]').on('change', function(e) {
     selectedNoise = $('[name=sound]:checked').val()
@@ -99,6 +106,7 @@ $(document).ready(function() {
       .addClass('sound-option-selected')
       sound.playSound(volumes[selectedNoise])
   })
+
   $('.play-pause').on('click',function(e){
       e.preventDefault();
       player = document.getElementById('audioElement');
@@ -124,7 +132,7 @@ $(document).ready(function() {
   $.getJSON('../js/liqen/data/devices-world.json', function(data) {
 
     data.forEach(function(d) {
-      var template = '<h2>{title}</h2><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
+      var template = '<h4>{title}</h4><p>{description}</p>';
       var popup = template.replace('{title}', d.name);
       popup = template.replace('{title}', d.name);
       popup = popup.replace('{description}', d.description);
