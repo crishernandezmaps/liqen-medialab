@@ -68,6 +68,8 @@ $(document).ready(function() {
   function loadNoice(device) {
     deviceInfo = getDeviceInfo(device);
     if(deviceInfo){
+      console.log(deviceInfo);
+      $(".share").attr('href',$(".share").attr('href').replace("{city}",deviceInfo.city));
       map.setView([deviceInfo.latitude,deviceInfo.longitude],20);
 
       start = moment().subtract(7, 'days').format();
@@ -173,6 +175,7 @@ $(document).ready(function() {
     var urlParams = parseURL(location.href);
     if(urlParams.params.device!=undefined){
         loadNoice(urlParams.params.device);
+
     }
     else{
       loadNoice(170);
