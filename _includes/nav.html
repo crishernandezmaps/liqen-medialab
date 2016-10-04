@@ -14,18 +14,19 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          {% assign sorted_pages = site.pages | sort:"order" %}
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="{{ site.github.url }}/">Home</a>
                 </li>
-				        {% for page in site.pages %}{% if page.url contains "projects/" %}{% if page.title %}
+				        {% for page in sorted_pages %}{% if page.url contains "projects/" %}{% if page.title %}
                 <li>
                     <a href="{{ page.url | prepend: site.baseurl | prepend: site.github.url }}">{{ page.title }}</a>
                 </li>
                 {% endif %}{% endif %}
                 {% endfor %}
 
-                {% for page in site.pages %}{% if page.url contains "projects/" %}{% else %}{% if page.title %}
+                {% for page in sorted_pages %}{% if page.url contains "projects/" %}{% else %}{% if page.title %}
                 <li>
                     <a href="{{ page.url | prepend: site.baseurl | prepend: site.github.url }}">{{ page.title }}</a>
                 </li>

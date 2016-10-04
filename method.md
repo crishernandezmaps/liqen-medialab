@@ -3,6 +3,7 @@ layout: page
 title: "Method"
 description: "How we did it"
 header-img: "img/home-bg.jpg"
+order: 5
 ---
 
 ## 1.- Description
