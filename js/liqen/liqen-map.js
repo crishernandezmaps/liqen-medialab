@@ -1,3 +1,8 @@
+/**
+ * Map configuration
+ * @param selector
+ * @param devices
+ */
 function LiqenMap(selector,devices){
   // Map properties
   var map;
