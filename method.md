@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Method"
-description: "Method"
+description: "How we did it"
 header-img: "img/home-bg.jpg"
 ---
 
