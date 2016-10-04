@@ -1,0 +1,100 @@
+---
+layout: default
+title: "What do you hear in…?"
+header-img: "img/dashboard-bg.jpg"
+---
+<header class="intro-header" style="background-image: url('{{ site.github.url }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="site-heading" style="padding: 60px 0">
+          <h1>What do you hear in…?</h1>
+          <hr class="small">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="city-list">
+        <li><a id="device-3593" href="?device=3593">London</a></li>
+        <li><a id="device-170" class="selected" href="?device=170">Madrid</a></li>
+        <li><a id="device-3683" href="?device=3683">Santiago</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sound-option sound-option-selected" id="sound-who-container">
+        <label>
+          <input type="radio" name="sound" id="sound-who" value="who" checked>
+          <!--<i class="fa fa-volume-up fa-lg"></i>-->
+          World Health Org.
+        </label>
+        <br>
+        <small>This is the maximum recomended noise according the World Health Organization.</small>
+      </div>
+
+      <hr>
+
+      <div class="sound-option" id="sound-machine-container">
+        <label>
+          <input type="radio" name="sound" id="sound-machine" value="machine">
+          <!--<i class="fa fa-volume-up fa-lg"></i>-->
+          Machine sensor
+        </label>
+        <br>
+        <small>This is the last measurement taken by the sensor located in this spot.</small>
+      </div>
+
+      <hr>
+
+      <div class="sound-option" id="sound-human-container">
+        <label>
+          <input type="radio" name="sound" id="sound-human" value="human">
+          <!--<i class="fa fa-volume-up fa-lg"></i>-->
+          Human sensor
+        </label>
+        <br>
+        <small>This is the perception of a person who answered our questionnaire.</small>
+      </div>
+
+
+    </div>
+    <div class="col-md-6">
+      <div id="map-container">
+        <div id="map" style="height: 500px"></div>
+        <div id="player">
+          <audio id="audioElement" src="{{ "/sound/new-sounds/obras-suave-clip.mp3" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></audio>
+          <div class="graph"></div>
+          <div class="controls">
+            <a class="play-pause btn btn-link btn-sm" href="#"><i class="play fa fa-volume-up fa-lg"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+        <a class="btn btn-warning btn-sm share" target="_blank" href="https://twitter.com/intent/tweet?text=I played with %23liqen and my experience in {city} was.. http://bit.ly/2cPEpVt">Tell us what you think</a>
+        <a class="twitter-timeline"  href="https://twitter.com/hashtag/liqen" data-widget-id="782985724647923712">Tweets sobre #liqen</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    </div>
+  </div>
+</div>
+
+
+<script src="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.js" charset="utf-8"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+
+<script src="{{ "/js/leaflet-markercluster/leaflet.markercluster.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
+<script src="{{ "/js/jquery.ajaxQueue.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
+
+<script src="{{ "/estaciones/js/liquen-graph.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
+<script src="{{ "/sense/js/sense.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>
+
+<script src="{{ "/sound/sound.js" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>

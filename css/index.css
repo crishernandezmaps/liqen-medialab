@@ -3,6 +3,25 @@ body, html {
   height: 100%;
 }
 
+.city-list {
+  text-align: center;
+  list-style: none;
+}
+
+.city-list li {
+  display: inline-block;
+  padding: 0 30px;
+}
+
+.city-list a {
+  padding: 20px 0;
+}
+
+.city-list-selected {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 .splash-screen {
   width: 100%;
   min-height: 100%;
@@ -73,7 +92,7 @@ ul{
   height: 4.5em;
   position: absolute;
   z-index: 900;
-  bottom: 0;
+  bottom: 200px;
   pointer-events: none;
 }
 #player .graph{
@@ -92,4 +111,25 @@ ul{
   pointer-events: auto;
 }
 #player .controls li{
+}
+
+
+.sound-option {
+  padding: 10px;
+  color: #337ab7;
+}
+.sound-option-selected {
+  background: #337ab7;
+  color: #FFF;
+}
+.ask-help{
+  background:#3371b7;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  display:none;
+}
+.ask-help a{
+  color: #fdf;
+  text-decoration: none;
 }

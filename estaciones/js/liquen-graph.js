@@ -63,7 +63,7 @@ function getLimits(start,end,serie){
     color = "blue";
   }
   else if(serie=="OMS"){
-    label = "OMS Recomendation";
+    label = "WMO Recomendation";
     points = [{x:new Date(start),y:50},{x:new Date(end),y:50}];
     color = "orange";
   }
@@ -72,7 +72,8 @@ function getLimits(start,end,serie){
 
 function playSound(volume){
   var x = document.getElementById('audioElement');
-  x.volume = Math.round(volume/100);
+  console.log("v", volume)
+  x.volume = Math.max(Math.min(1, (volume/100)), 0);
   x.play();
 }
 
