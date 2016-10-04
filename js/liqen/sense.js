@@ -4,7 +4,7 @@ $(document).ready(function() {
   var devices = L.markerClusterGroup();
   var countries = [];
   var cities = ['Madrid', 'London', 'Santiago'];
-  var devicesURL = 'https://api.smartcitizen.me/v0/devices/{device}/readings?all_intervals=true&from={start}&rollup=6h&sensor_id=7&to={end}';
+  var devicesURL = 'https://api.smartcitizen.me/v0/devices/{device}/';
   var humansURL = 'https://liqen-pre.herokuapp.com/metrics?device={device}&start={start}&end={end}';
 
   //Graphs properties
@@ -48,11 +48,19 @@ $(document).ready(function() {
     "Devices": devices
   };
 
+  var selectedNoise = 'who';
+  var volumes = {
+    who: 30,
+    machine: 0,
+    human: 0
+  }
+
 // Insert customize marker
 
 
 
   function getDeviceInfo(device){
+    $('#device-' + device).addClass('city-list-selected')
     deviceInfo = devicesData.filter(function (d){return d.id==device});
     return (deviceInfo.length) ? deviceInfo[0] : null;
   }
@@ -60,6 +68,8 @@ $(document).ready(function() {
   function loadNoice(device) {
     deviceInfo = getDeviceInfo(device);
     if(deviceInfo){
+      console.log(deviceInfo);
+      $(".share").attr('href',$(".share").attr('href').replace("{city}",deviceInfo.city));
       map.setView([deviceInfo.latitude,deviceInfo.longitude],20);
 
       start = moment().subtract(7, 'days').format();
@@ -80,75 +90,46 @@ $(document).ready(function() {
         url:machineUrl,
         dataType: 'json',
         success: function(resp){
-          var points = resp.readings.map(function(d) {
-            ts = new Date(d[0]);
-            value = (d[1] != null) ? d[1] : 0;
-            volume = Math.max(volume,value);
-            return {
-              x: ts.getTime(),
-              y: value
-            };
+          var points = resp.data.sensors.map(function(d) {
+            if (d.id === 7) {
+              volumes.machine = Math.max(volumes.machine, d.value);
+            }
           })
-
-          var data = new Array();
-          var serie = {
-            key: "Noise",
-            values: points,
-            type: 'bar',
-            yAxis: 1
-          }
-          data.push(serie);
-          data.push(getLimits(start, end, "EU"));
-          data.push(getLimits(start, end, "WHO"));
-
-          machineData
-            .datum(data)
-            .transition().duration(1200)
-            .call(machineSensor);
         }
       });
+
+      var volume = 0
 
       $.ajaxq('display',{
         url:humanUrl,
         dataType:'json',
         success: function(resp){
-          console.log(resp)
-          if(resp.length>0){
-            var points = resp.map(function(d){
-              volume = Math.max(volume,d.decibels);
-              return {x:d.timestamp,y:d.decibels}
-            });
-
-            var serie = {
-              key: "Noise",
-              values: points,
-              type: 'bar',
-              yAxis: 1
-            }
-            var data = new Array();
-            data.push(serie);
-            data.push(getLimits(start, end, "EU"));
-            data.push(getLimits(start, end, "WHO"));
-
-            humanData.style('display','block');
-            d3.select('.ask-help').style('display','none');
-            humanData
-              .datum(data)
-              .transition().duration(1200)
-              .call(humanSensor);
-          }
-          else {
-            humanData.style('display','none');
-            d3.select('.ask-help').style('display','block');
-          }
+          points = resp.map(function(d){
+            volume = Math.max(volume,d.decibels);
+            volumes.human = volume
+            return {x:d.timestamp,y:d.decibels}
+          });
         },
-        complete: function(){
-          playSound(volume)
+        complete: function() {
+          console.log("Vols:", volumes.who, volumes.human, volumes.machine );
+          playSound(volumes.who)
         }
+      });
+
+      queue.success(function(){
+
       });
     }
   }
 
+  $('[name=sound]').on('change', function(e) {
+    selectedNoise = $('[name=sound]:checked').val()
+    $('.sound-option-selected')
+      .removeClass('sound-option-selected')
+    $('#sound-' + selectedNoise + '-container')
+      .addClass('sound-option-selected')
+    playSound(volumes[selectedNoise])
+  })
   $('.play-pause').on('click',function(e){
       e.preventDefault();
       player = document.getElementById('audioElement');
@@ -164,11 +145,6 @@ $(document).ready(function() {
       }
   });
 
-  $(document).on('click', '.details', function(e) {
-    var device = $(e.target).data('device');
-    loadNoice(device);
-  });
-
 
   //$.getJSON('https://api.smartcitizen.me/v0/devices/world_map', function(data) {
   //data = resp.filter(function(d) {
@@ -176,15 +152,12 @@ $(document).ready(function() {
   //        (countries.indexOf(d.country_code) >= 0 || cities.indexOf(d.city) >= 0);
   //    });
 
-  $.getJSON('../estaciones/data/devices-world.json', function(data) {
+  $.getJSON('../js/liqen/data/devices-world.json', function(data) {
     map = L.map('map', {
       center: [0.73, -10.99],
       zoom: 2,
       layers: [emerald, devices]
     });
-
-    nv.addGraph(new LiQuenGraph('#machine-sensor svg', machineSensor));
-    nv.addGraph(new LiQuenGraph('#human-sensor svg', humanSensor));
 
     data.forEach(function(d) {
       var template = '<h2>{title}</h2><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
@@ -201,6 +174,9 @@ $(document).ready(function() {
     var urlParams = parseURL(location.href);
     if(urlParams.params.device!=undefined){
         loadNoice(urlParams.params.device);
+    }
+    else{
+      loadNoice(170);
     }
   })
 });
