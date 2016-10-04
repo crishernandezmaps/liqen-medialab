@@ -57,6 +57,9 @@ order: 6
 	{% if member.gplus %}
 	<span class="social-share-googleplus"><a href="{{ member.gplus }}" title="Google Plus"><i class="fa fa-google-plus"></i>&nbsp;Google Plus</a></span>
 	{% endif %}
+	{% if member.twitter %}
+	<span class="social-share-twitter"><a href="https://twitter.com/{{ member.twitter }}" title="Twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a></span>
+	{% endif %}
 	{% if member.url %}
 	<span class="social-share-googleplus"><a href="{{ member.url }}" title="Google Plus"><i class="fa fa-home"></i>&nbsp;Website</a></span>
 	{% endif %}
