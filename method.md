@@ -1,5 +1,6 @@
 ---
 layout: page
+title: "Method"
 description: "Method"
 header-img: "img/home-bg.jpg"
 ---
