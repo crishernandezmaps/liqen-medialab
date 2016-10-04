@@ -3,11 +3,12 @@ $(document).ready(function() {
   var sound = new LiqenSound('audioElement');
   sound.render();
 
+  // Map properties
+  var devices = L.markerClusterGroup();
+  var map = new LiqenMap('map',devices);
+
   // Device properties
   var devicesData;
-  var devices = L.markerClusterGroup();
-  var countries = [];
-  var cities = ['Madrid', 'London', 'Santiago'];
   var devicesURL = 'https://api.smartcitizen.me/v0/devices/{device}/';
   var humansURL = 'https://liqen-pre.herokuapp.com/metrics?device={device}&start={start}&end={end}';
 
@@ -17,40 +18,6 @@ $(document).ready(function() {
   var machineData
   var humanData;
 
-  // Map properties
-  var map;
-  var mbAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
-    '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-    'Sensors Data © <a href="http://smartcitizen.me">SmartCitizen</a>, ' +
-    'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    mbUrl = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
-//    mbUrl = 'https://api.mapbox.com/styles/v1/crishernandezco/citr5vkrr00052hln1i64nmn8/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiY3Jpc2hlcm5hbmRlemNvIiwiYSI6ImNpdGxqd2ttNzAwMTQyb29ia2Z6cTA1cmMifQ.XvmSqMosFphwEPOpCCOAoQ';
-  var emerald = L.tileLayer(mbUrl, {
-      id: 'mapbox.emerald',
-      attribution: mbAttr
-    }),
-    outdoors = L.tileLayer(mbUrl, {
-      id: 'mapbox.outdoors',
-      attribution: mbAttr
-    }),
-    pirates = L.tileLayer(mbUrl, {
-      id: 'mapbox.pirates',
-      attribution: mbAttr
-    })
-    liqen = L.tileLayer(mbUrl, {
-      id: 'mapbox.liqen',
-      attribution: mbAttr
-    });
-
-  var baseLayers = {
-    "Liqen":emerald,
-    "Outdoors": outdoors,
-    "Pirates":pirates
-  };
-
-  var overlays = {
-    "Devices": devices
-  };
 
   var selectedNoise = 'who';
   var volumes = {
@@ -58,8 +25,6 @@ $(document).ready(function() {
     machine: 0,
     human: 0
   }
-
-// Insert customize marker
 
 
 
@@ -72,7 +37,7 @@ $(document).ready(function() {
   function loadNoice(device) {
     deviceInfo = getDeviceInfo(device);
     if(deviceInfo){
-      console.log(deviceInfo);
+
       $(".share").attr('href',$(".share").attr('href').replace("{city}",deviceInfo.city));
       map.setView([deviceInfo.latitude,deviceInfo.longitude],20);
 
@@ -157,11 +122,6 @@ $(document).ready(function() {
   //    });
 
   $.getJSON('../js/liqen/data/devices-world.json', function(data) {
-    map = L.map('map', {
-      center: [0.73, -10.99],
-      zoom: 2,
-      layers: [emerald, devices]
-    });
 
     data.forEach(function(d) {
       var template = '<h2>{title}</h2><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
@@ -170,8 +130,10 @@ $(document).ready(function() {
       popup = popup.replace('{description}', d.description);
       popup = popup.replace('{device}', d.id);
 
+
       L.marker([d.latitude, d.longitude]).bindPopup(popup).addTo(devices);
     });
+
 
     devicesData = data;
 
