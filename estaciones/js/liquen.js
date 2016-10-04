@@ -99,7 +99,7 @@ $(document).ready(function() {
           }
           data.push(serie);
           data.push(getLimits(start, end, "EU"));
-          data.push(getLimits(start, end, "OMS"));
+          data.push(getLimits(start, end, "WHO"));
 
           machineData
             .datum(data)
@@ -128,8 +128,10 @@ $(document).ready(function() {
             var data = new Array();
             data.push(serie);
             data.push(getLimits(start, end, "EU"));
-            data.push(getLimits(start, end, "OMS"));
+            data.push(getLimits(start, end, "WHO"));
+
             humanData.style('display','block');
+            d3.select('.ask-help').style('display','none');
             humanData
               .datum(data)
               .transition().duration(1200)
@@ -141,7 +143,6 @@ $(document).ready(function() {
           }
         },
         complete: function(){
-          console.log("Vol: "+ volume);
           playSound(volume)
         }
       });

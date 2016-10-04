@@ -116,7 +116,7 @@ $(document).ready(function() {
       });
 
       queue.success(function(){
-        
+
       });
     }
   }
@@ -173,6 +173,9 @@ $(document).ready(function() {
     var urlParams = parseURL(location.href);
     if(urlParams.params.device!=undefined){
         loadNoice(urlParams.params.device);
+    }
+    else{
+      loadNoice(170);
     }
   })
 });
