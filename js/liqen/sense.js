@@ -123,12 +123,6 @@ $(document).ready(function() {
   });
 
 
-  //$.getJSON('https://api.smartcitizen.me/v0/devices/world_map', function(data) {
-  //data = resp.filter(function(d) {
-  //      return d.system_tags.indexOf('outdoor') >= 0 &&
-  //        (countries.indexOf(d.country_code) >= 0 || cities.indexOf(d.city) >= 0);
-  //    });
-
   $.getJSON('../js/liqen/data/devices-world.json', function(data) {
 
     data.forEach(function(d) {
@@ -138,10 +132,8 @@ $(document).ready(function() {
       popup = popup.replace('{description}', d.description);
       popup = popup.replace('{device}', d.id);
 
-
       L.marker([d.latitude, d.longitude]).bindPopup(popup).addTo(devices);
     });
-
 
     devicesData = data;
 

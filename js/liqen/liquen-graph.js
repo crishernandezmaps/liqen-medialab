@@ -62,7 +62,7 @@ function getLimits(start,end,serie){
     points = [{x:new Date(start),y:55},{x:new Date(end),y:55}];
     color = "blue";
   }
-  else if(serie=="OMS"){
+  else if(serie=="WHO"){
     label = "WMO Recomendation";
     points = [{x:new Date(start),y:50},{x:new Date(end),y:50}];
     color = "orange";

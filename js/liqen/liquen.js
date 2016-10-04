@@ -150,7 +150,7 @@ $(document).ready(function() {
     nv.addGraph(new LiQuenGraph('#human-sensor svg', humanSensor));
 
     data.forEach(function(d) {
-      var template = '<h2>{title}</h2><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
+      var template = '<h4>{title}</h4><p>{description}</p><input class="details" data-device="{device}" type="button" value="View">';
       var popup = template.replace('{title}', d.name);
       popup = template.replace('{title}', d.name);
       popup = popup.replace('{description}', d.description);
