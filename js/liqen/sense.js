@@ -1,4 +1,8 @@
 $(document).ready(function() {
+  // Sound properties
+  var sound = new LiqenSound('audioElement');
+  sound.render();
+
   // Device properties
   var devicesData;
   var devices = L.markerClusterGroup();
@@ -112,7 +116,7 @@ $(document).ready(function() {
         },
         complete: function() {
           console.log("Vols:", volumes.who, volumes.human, volumes.machine );
-          playSound(volumes.who)
+          sound.playSound(volumes.who)
         }
       });
 
@@ -128,7 +132,7 @@ $(document).ready(function() {
       .removeClass('sound-option-selected')
     $('#sound-' + selectedNoise + '-container')
       .addClass('sound-option-selected')
-    playSound(volumes[selectedNoise])
+      sound.playSound(volumes[selectedNoise])
   })
   $('.play-pause').on('click',function(e){
       e.preventDefault();

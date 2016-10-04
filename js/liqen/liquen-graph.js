@@ -70,12 +70,6 @@ function getLimits(start,end,serie){
   return {key:label,type:"line",yAxis:2,values:points,color:color};
 }
 
-function playSound(volume){
-  var x = document.getElementById('audioElement');
-  console.log("v", volume)
-  x.volume = Math.max(Math.min(1, (volume/100)), 0);
-  x.play();
-}
 
 // This function creates a new anchor element and uses location
 // properties (inherent) to get the desired URL data. Some String

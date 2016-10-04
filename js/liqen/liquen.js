@@ -1,5 +1,9 @@
 $(document).ready(function() {
-  // Device properties
+  // Sound properties
+  var sound = new LiqenSound('audioElement');
+  sound.render();
+
+// Device properties
   var devicesData;
   var devices = L.markerClusterGroup();
   var countries = [];
@@ -143,7 +147,7 @@ $(document).ready(function() {
           }
         },
         complete: function(){
-          playSound(volume)
+          sound.playSound(volume)
         }
       });
     }
@@ -203,4 +207,5 @@ $(document).ready(function() {
         loadNoice(urlParams.params.device);
     }
   })
+
 });
