@@ -21,14 +21,14 @@
                 </li>
 				        {% for page in sorted_pages %}{% if page.url contains "projects/" %}{% if page.title %}
                 <li>
-                    <a href="{{ page.url | prepend: site.baseurl | prepend: site.github.url }}">{{ page.title }}</a>
+                    <a href="{{ page.url | prepend: site.baseurl  }}">{{ page.title }}</a>
                 </li>
                 {% endif %}{% endif %}
                 {% endfor %}
 
                 {% for page in sorted_pages %}{% if page.url contains "projects/" %}{% else %}{% if page.title %}
                 <li>
-                    <a href="{{ page.url | prepend: site.baseurl | prepend: site.github.url }}">{{ page.title }}</a>
+                    <a href="{{ page.url | prepend: site.baseurl  }}">{{ page.title }}</a>
                 </li>
                 {% endif %}{% endif %}
                 {% endfor %}
