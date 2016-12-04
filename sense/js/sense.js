@@ -72,8 +72,8 @@ $(document).ready(function() {
       $(".share").attr('href',$(".share").attr('href').replace("{city}",deviceInfo.city));
       map.setView([deviceInfo.latitude,deviceInfo.longitude],20);
 
-      start = moment().subtract(7, 'days').format();
-      end = moment().format()
+      start = moment('2016-09-30').format();
+      end = moment('2016-10-30').format()
       machineData = d3.select('#machine-sensor svg');
       humanData = d3.select('#human-sensor svg');
       var volume = 30;
