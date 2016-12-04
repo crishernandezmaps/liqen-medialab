@@ -3,9 +3,8 @@
 - name: Cristian Hernández
   role: Data Analysis / Data Visualization
   img: https://pbs.twimg.com/profile_images/772080416677326848/yV0eUZko_400x400.jpg
-  twitter: http://twitter.com/crishernandezco
+  twitter: crishernandezco
   github: crishernandezmaps
-  gplus:
   bio: Geographer expert in spatial data science and visualization.
   url: http://blog.crishernandez.co
   promoter: true
@@ -13,58 +12,34 @@
 - name: Maribel Mateos
   role: Project Coordination
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/maribel.jpg?raw=true
-  twitter: http://twitter.com/#
-  github: #
-  gplus:
   bio: Journalist specialized in Multimedia Communication, Branding and Social Media.
-  url: #
   promoter: true
 
 - name: Rafael Heiber
-  role:
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/rafael.jpg?raw=true
-  twitter: http://twitter.com/#
-  github:
-  gplus:
   bio: Geographer and Sociologist. His fields of expertise are spatial organization, geopolitics and social-technical analysis.
-  url: #
   promoter: true
 
 - name: Patricio Cabello
-  role:
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/pato.jpg?raw=true
-  twitter: http://twitter.com/#
-  github:
-  gplus:
   bio: Patricio Cabello. Social Psychologist. Researcher on youth, social movements and ICTs.
-  url: #
   promoter: true
 
 - name: Jaime González-Capitel
-  role:
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/jaime.jpg?raw=true
-  twitter: http://twitter.com/#
-  github:
-  gplus:
   bio: Fulbright Alumni at Georgetown University. Transparency expert, knowledge manager and  coordinator of Observatorio de Think Tanks, has collaborated in Open Data projects like the OpenGovGuide.com.
-  url: #
   promoter: true
 
 - name: Miguel Rubiales
-  role:
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/miguel.jpg?raw=true
-  twitter: http://twitter.com/#
-  github:
-  gplus:
   bio: Sociologist, lecturer in research techniques, cartography and human geography in indaga.org and the research group Territorio, Población y Ciudadanía (UB).
-  url: #
   promoter: true
 
 - name: Diego Andrés Ramírez Aragón
   role: Visualization and System Integration
   img: https://secure.gravatar.com/avatar/9313fa5afb29c0aa50eebbe104fb9393.jpg?d=mm&s=200
   url: https://lowfill.org/
-  twitter: http://twitter.com/#
+  twitter: lowfill
   github: lowfill
   bio:
   collaborator: true
@@ -72,18 +47,14 @@
 - name: Carlos Saito
   role: Data Scientist
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/carlos.jpg?raw=true
-  github: davidbrough1
+  github: exacs
   bio:
-  url: http://davidbrough.net
-  twitter: http://twitter.com/#
+  url: http://dpa-etsam.com
+  twitter: c___s_
   collaborator: true
 
-- name: Carmen Reinoso
+- name: Carmen Reynoso
   role: Environmental Expert
-  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/logo.png?raw=true
-  github:
-  gplus:
-  bio:
-  twitter: http://twitter.com/#
-  url: #
+  img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/carmen.jpg?raw=true
+  twitter: CarmenReynoso13
   collaborator: true

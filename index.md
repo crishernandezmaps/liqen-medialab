@@ -2,6 +2,7 @@
 layout: page
 description: "What is this project about?"
 header-img: "img/home-bg.jpg"
+order: 1
 ---
 
 LiQen Project seeks to collect qualitative data from citizens crowdsourced using web and mobile apps aim to discover territorial controversies among cities in the world.

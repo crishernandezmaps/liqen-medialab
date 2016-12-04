@@ -3,6 +3,7 @@ layout: page
 title: "Members"
 description: "Collaborators working on this project."
 header-img: "img/home-bg.jpg"
+order: 6
 ---
 <hr>
 <h1>Promoters</h1>
@@ -15,8 +16,8 @@ header-img: "img/home-bg.jpg"
 	<h4>{{ member.role }}</h4>
 
 
-	{% if member.twitter %}
-	<span class="social-share-twitter"><a href="{{ member.twitter }}" title="twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a></span>
+	{% if member.url %}
+	<span class="social-share-googleplus"><a href="{{ member.url }}" title="Website"><i class="fa fa-home"></i>&nbsp;Website</a></span>
 	{% endif %}
 	{% if member.github %}
 	<span class="social-share-googleplus"><a href="https://github.com/{{ member.github }}" title="Github"><i class="fa fa-github"></i>&nbsp;Github</a></span>
@@ -24,8 +25,8 @@ header-img: "img/home-bg.jpg"
 	{% if member.gplus %}
 	<span class="social-share-googleplus"><a href="{{ member.gplus }}" title="Google Plus"><i class="fa fa-google-plus"></i>&nbsp;Google Plus</a></span>
 	{% endif %}
-	{% if member.url %}
-	<span class="social-share-googleplus"><a href="{{ member.url }}" title="Google Plus"><i class="fa fa-home"></i>&nbsp;Website</a></span>
+	{% if member.twitter %}
+	<span class="social-share-twitter"><a href="https://twitter.com/{{ member.twitter }}" title="Twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a></span>
 	{% endif %}
 
 	</br>
@@ -50,14 +51,17 @@ header-img: "img/home-bg.jpg"
 
 	<h4>{{ member.role }}</h4>
 
+	{% if member.url %}
+	<span class="social-share-googleplus"><a href="{{ member.url }}" title="Website"><i class="fa fa-home"></i>&nbsp;Website</a></span>
+	{% endif %}
 	{% if member.github %}
 	<span class="social-share-googleplus"><a href="https://github.com/{{ member.github }}" title="Github"><i class="fa fa-github"></i>&nbsp;Github</a></span>
 	{% endif %}
 	{% if member.gplus %}
 	<span class="social-share-googleplus"><a href="{{ member.gplus }}" title="Google Plus"><i class="fa fa-google-plus"></i>&nbsp;Google Plus</a></span>
 	{% endif %}
-	{% if member.url %}
-	<span class="social-share-googleplus"><a href="{{ member.url }}" title="Google Plus"><i class="fa fa-home"></i>&nbsp;Website</a></span>
+	{% if member.twitter %}
+	<span class="social-share-twitter"><a href="https://twitter.com/{{ member.twitter }}" title="Twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a></span>
 	{% endif %}
 
 	</br>

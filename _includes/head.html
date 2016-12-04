@@ -16,23 +16,23 @@
 
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">
+    <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Custom CSS -->
 
-    <link rel="stylesheet" href="{{ "/css/clean-blog.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">
+    <link rel="stylesheet" href="{{ "/css/clean-blog.css" | prepend: site.baseurl | prepend: site.url }}">
 
 	<!-- Adjust Colors -->
-    <link rel="stylesheet" href="{{ "/css/colorscheme.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">
+    <link rel="stylesheet" href="{{ "/css/colorscheme.css" | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">
+    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Custom styles CSS -->
-    <link rel="stylesheet" href="{{ "/css/index.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}">
+    <link rel="stylesheet" href="{{ "/css/index.css" | prepend: site.baseurl | prepend: site.url }}">
 
     <!-- Custom Fonts -->
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -42,8 +42,8 @@
     <!-- Leaflet -->
     <link rel="stylesheet" href="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
     <!-- <link rel="stylesheet" href="//unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" /> -->
-    <link rel="stylesheet" href="{{ "/css/leaflet-markercluster/MarkerCluster.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}" />
-    <link rel="stylesheet" href="{{ "/css/leaflet-markercluster/MarkerCluster.Default.css" | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}" />
+    <link rel="stylesheet" href="{{ "/css/leaflet-markercluster/MarkerCluster.css" | prepend: site.baseurl | prepend: site.url }}" />
+    <link rel="stylesheet" href="{{ "/css/leaflet-markercluster/MarkerCluster.Default.css" | prepend: site.baseurl | prepend: site.url }}" />
 
     <!-- NVD3  -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.4/nv.d3.css" />
@@ -64,7 +64,7 @@
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<!-- Custom Theme JavaScript -->
-	<!--<script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl | prepend: site.url | prepend: site.github.url}}"></script>-->
+	<!--<script src="{{ "/js/clean-blog.min.js " | prepend: site.baseurl | prepend: site.url }}"></script>-->
 
 	{% include analytics.html %}
 

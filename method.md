@@ -3,6 +3,7 @@ layout: page
 title: "Method"
 description: "How we did it"
 header-img: "img/home-bg.jpg"
+order: 5
 ---
 
 ## 1.- Description
@@ -29,9 +30,9 @@ We compare both levels of noise (quantitative and qualitative) against the World
 > What we will see are hybrids: rich blends of human and machine curation that handle huge datasets while going far beyond narrow confines. We now have so much – whether it’s books, songs, films or artworks (let alone data) – that we can’t manage it all alone. We need an “algorithmic culture”. Yet we also need something more than ever: human taste. ([source](https://www.theguardian.com/technology/2016/sep/30/age-of-algorithm-human-gatekeeper?CMP=fb_gu)).
 
 ## 4.- liQen Platform
+We have created a platform that provides a way to visualize data and also is a channel to consume data about perceptions. You can make a simple api call to our dashboard like this:
 
-
-
+> https://crishernandezmaps.github.io/liqen-medialab/dashboard/?device=3675
 
 
 ---
