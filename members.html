@@ -6,14 +6,14 @@ header-img: "img/home-bg.jpg"
 order: 6
 ---
 <hr>
-<h1>Promoters</h1>
+<h2>Promoters</h2>
 {% for member in site.data.members %} {% if member.promoter == true %}
 
 	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:10px; margin-right:10px; float:left; height: 100px; width:100px !important">
 
-	<h2>{{ member.name }}</h2>
+	<p>{{ member.name }}</p>
 
-	<h4>{{ member.role }}</h4>
+	<p>{{ member.role }}</p>
 
 
 	{% if member.url %}
