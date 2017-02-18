@@ -1,65 +1,65 @@
 # Members
 
 - name: Cristian Hernández
-  role: Data Analysis / Data Visualization
+  # role: Data Analysis / Data Visualization
   img: https://pbs.twimg.com/profile_images/772080416677326848/yV0eUZko_400x400.jpg
   twitter: crishernandezco
   github: crishernandezmaps
-  bio: Data Scientist - Project Coordinator.
+  # bio: Data Scientist - Project Coordinator.
   url: http://commonactionforum.net/
   promoter: true
 
 - name: Maribel Mateos
-  role: Project Coordination
+  # role: Project Coordination
   url: http://commonactionforum.net/
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/maribel.jpg?raw=true
-  bio: Communications Manager - Common Action Forum
+  # bio: Communications Manager - Common Action Forum
   promoter: true
 
 - name: Rafael Heiber
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/rafael.jpg?raw=true
-  bio: Co-founder & Executive Director - Common Action Forum
+  # bio: Co-founder & Executive Director - Common Action Forum
   url: http://commonactionforum.net/
   promoter: true
 
 - name: Patricio Cabello
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/pato.jpg?raw=true
-  bio: Research Associate - Common Action Forum
+  # bio: Research Associate - Common Action Forum
   url: http://commonactionforum.net/
   promoter: true
 
 - name: Jaime González-Capitel
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/jaime.jpg?raw=true
-  bio: Research Associate - Common Action Forum
+  # bio: Research Associate - Common Action Forum
   url: http://commonactionforum.net/
   promoter: true
 
 - name: Miguel Rubiales
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/miguel.jpg?raw=true
-  bio: Research Associate
+  # bio: Research Associate
   url: http://commonactionforum.net/
   promoter: true
 
 - name: Diego Andrés Ramírez Aragón
-  role: Visualization and System Integration
+  # role: Visualization and System Integration
   img: https://secure.gravatar.com/avatar/9313fa5afb29c0aa50eebbe104fb9393.jpg?d=mm&s=200
   url: https://lowfill.org/
   twitter: lowfill
   github: lowfill
-  bio:
+  # bio:
   collaborator: true
 
 - name: Carlos Saito
-  role: Data Scientist
+  # role: Data Scientist
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/carlos.jpg?raw=true
   github: exacs
-  bio:
+  # bio:
   url: http://dpa-etsam.com
   twitter: c___s_
   collaborator: true
 
 - name: Carmen Reynoso
-  role: Environmental Expert
+  # role: Environmental Expert
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/carmen.jpg?raw=true
   twitter: CarmenReynoso13
   collaborator: true
