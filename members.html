@@ -6,12 +6,17 @@ header-img: "img/home-bg.jpg"
 order: 6
 ---
 <hr>
-<h2>Promoters</h2>
+<h2>Members</h2>
 {% for member in site.data.members %} {% if member.promoter == true %}
 
 	<!-- <img src="{{ member.img }}" style="margin-top:0px; margin-bottom:10px; margin-right:10px; float:left; height: 100px; width:100px !important"> -->
+	<ul>
+		<li>
+			<p>{{ member.name }}</p>
+		</li>
+	</ul>
 
-	<p>{{ member.name }}</p>
+	<!-- <p>{{ member.name }}</p>
 
 	<p>{{ member.role }}</p>
 
@@ -27,7 +32,7 @@ order: 6
 	{% endif %}
 	{% if member.twitter %}
 	<span class="social-share-twitter"><a href="https://twitter.com/{{ member.twitter }}" title="Twitter"><i class="fa fa-twitter"></i>&nbsp;Twitter</a></span>
-	{% endif %}
+	{% endif %} -->
 
 	</br>
 
@@ -41,11 +46,11 @@ order: 6
 
 </br>
 
-<hr>
+<!-- <hr>
 <h2>Collaborators</h2>
 {% for member in site.data.members %} {% if member.collaborator == true %}
 
-	<!-- <img src="{{ member.img }}" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; height: 100px; width:100px !important"> -->
+	<img src="{{ member.img }}" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; height: 100px; width:100px !important">
 
 	<p>{{ member.name }}</p>
 
@@ -72,4 +77,4 @@ order: 6
 
 	<hr>
 
-{% endif %}{% endfor %}
+{% endif %}{% endfor %} -->
