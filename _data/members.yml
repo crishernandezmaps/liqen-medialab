@@ -47,7 +47,8 @@
   # twitter: lowfill
   # github: lowfill
   # bio:
-  collaborator: true
+  promoter: true
+  # collaborator: true
 
 - name: Carlos Saito
   # role: Data Scientist
@@ -56,10 +57,12 @@
   # # bio:
   # url: http://dpa-etsam.com
   # twitter: c___s_
-  collaborator: true
+  promoter: true
+  # collaborator: true
 
 - name: Carmen Reynoso
   # role: Environmental Expert
   img: https://github.com/crishernandezmaps/liqen-medialab/blob/gh-pages/img/carmen.jpg?raw=true
   # twitter: CarmenReynoso13
-  collaborator: true
+  promoter: true
+  # collaborator: true
