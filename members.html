@@ -42,14 +42,14 @@ order: 6
 </br>
 
 <hr>
-<h1>Collaborators</h1>
+<h2>Collaborators</h2>
 {% for member in site.data.members %} {% if member.collaborator == true %}
 
 	<!-- <img src="{{ member.img }}" style="margin-top:0px; margin-bottom:5px; margin-right:10px; float:left; height: 100px; width:100px !important"> -->
 
-	<h2>{{ member.name }}</h2>
+	<p>{{ member.name }}</p>
 
-	<h4>{{ member.role }}</h4>
+	<p>{{ member.role }}</p>
 
 	{% if member.url %}
 	<span class="social-share-googleplus"><a href="{{ member.url }}" title="Website"><i class="fa fa-home"></i>&nbsp;Website</a></span>
